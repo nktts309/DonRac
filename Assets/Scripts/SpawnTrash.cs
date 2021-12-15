@@ -30,12 +30,7 @@ public class SpawnTrash : MonoBehaviour
             Instance = this;
         }
     }
-    // Update is called once per frame
-    //void FixedUpdate()
-    //{
-    //    GenerateTrash();
-    //}
-    public void addTrash()
+    public void AddTrash()
     {
         int index = Random.Range(0, trashCounts.Length);
         while(trashCounts[index].countTrash == 0)
@@ -54,7 +49,7 @@ public class SpawnTrash : MonoBehaviour
         Destroy(trash);       
         if (currentList.Count < 5 && (trashCounts[0].countTrash != 0 | trashCounts[1].countTrash != 0 | trashCounts[2].countTrash != 0))
         {
-                addTrash();
+                AddTrash();
         }
         else if(currentList.Count == 0 && trashCounts[0].countTrash == 0 && trashCounts[1].countTrash == 0 && trashCounts[2].countTrash == 0)
         {

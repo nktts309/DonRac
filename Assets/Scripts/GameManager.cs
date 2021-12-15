@@ -24,10 +24,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<GameObject> yellowTrash;
     [SerializeField] private GameObject pinPoint;
 
-    [SerializeField] private List<GameObject> recycleBins = new List<GameObject>();
+    [SerializeField] private List<RecycleBin> recycleBins = new List<RecycleBin>();
     private int lastBinId = -1;
     private int tempCount = 0;
-    //Correct Trash || Incorrect Trash   
+    //Focus sprite
+    private int sortingOrder = 2;
+    [SerializeField] private SpriteRenderer[] sprites;
 
     private void Awake()
     {
@@ -54,21 +56,6 @@ public class GameManager : MonoBehaviour
         score2++;
         yellowText.text = score2.ToString();
         PlayerPrefs.SetInt("yellowTrash", score2);
-    }
-    public void CorrectText()
-    {
-        bubble.SetActive(true);
-        chatText.text = "You're correct";
-    }
-    public void InCorrectText()
-    {
-        bubble.SetActive(true);
-        chatText.text = "You're almost correct";
-    }
-    public void ResetText()
-    {
-        bubble.SetActive(false);
-        chatText.text = "";
     }
     public void LoadNextScene()
     {
@@ -99,7 +86,7 @@ public class GameManager : MonoBehaviour
                 {
                     rd = Random.Range(0, recycleBins.Count);
                 }
-                //recycleBins[rd].ShowPopup();
+                recycleBins[rd].ShowPopup();
             }
         }
         else
@@ -107,5 +94,12 @@ public class GameManager : MonoBehaviour
             tempCount = 0;
         }
         lastBinId = idBin;
+    }
+    public void GetSprite()
+    {
+        foreach(var sprite in sprites)
+        {
+            sprite.sortingOrder = sortingOrder;
+        }
     }
 }
