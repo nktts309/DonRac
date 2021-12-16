@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CategoriseTrashScene.unity
     guid: f5e4365782abf5148bee8eea9411bc28
+  - enabled: 1
+    path: Assets/Scenes/PlayScene 1.unity
+    guid: 8e297c8bd706ed04799058d51e6e9cdf
+  - enabled: 1
+    path: Assets/Scenes/CategoriseTrashScene 1.unity
+    guid: 294a3290cbe074947b3b88d6f0767dc3
   m_configObjects: {}

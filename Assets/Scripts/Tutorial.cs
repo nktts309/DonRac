@@ -17,11 +17,11 @@ public class Tutorial : MonoBehaviour
     }
     void PointAnimate()
     {
-        transform.DOMove(movePos, 0.75f).SetEase(Ease.Linear).OnComplete(() => {
-            transform.DOMove(startPos, 0.75f).SetEase(Ease.Linear).OnComplete(()=> {
-                PointAnimate();
-            });
-        });
+        //transform.DOMove(movePos, 0.75f).SetEase(Ease.Linear).OnComplete(() => {
+        //    transform.DOMove(startPos, 0.75f).SetEase(Ease.Linear).OnComplete(()=> {
+        //        PointAnimate();
+        //    });
+        //});
     }
     private void OnMouseDown()
     {

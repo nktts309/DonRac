@@ -34,6 +34,7 @@ public class CamFocus : MonoBehaviour
         {
             focus.SetActive(false);
             touchCount = 0;
+            Time.timeScale = 1;
         }
         //if(touchCount == 1)
         //{

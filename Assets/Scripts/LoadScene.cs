@@ -20,17 +20,17 @@ public class LoadScene : MonoBehaviour
     }
     public void LoadTutorial()
     {
-        SceneManager.LoadScene("PlayScene");
+        SceneManager.LoadScene("Tutorial");
     }
     IEnumerator LoadLevel (int index)
     {
         AsyncOperation operation = SceneManager.LoadSceneAsync(index);
-        NextLevel.SetActive(true);
+        //NextLevel.SetActive(true);
         while (!operation.isDone)
         {
-            float progress = Mathf.Clamp01(operation.progress /0.9f);
-            slider.value = progress;
-            percentage.text = progress * 100 + "%";
+            //float progress = Mathf.Clamp01(operation.progress /0.9f);
+            //slider.value = progress;
+            //percentage.text = progress * 100 + "%";
             yield return null;
         }
     }

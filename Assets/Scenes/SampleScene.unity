@@ -861,28 +861,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9417464858156614b910d4f5e265914e, type: 3}
---- !u!1 &504102631 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5106291866447226876, guid: 7692a99ac61f56549971bbb7c4b4bc07, type: 3}
-  m_PrefabInstance: {fileID: 1149802473}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &504102632
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 504102631}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c54ff7d9064cd484a9cf112da7c3f9f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nextLevelPanel: {fileID: 0}
-  prefab: []
-  currentList: []
-  trashCounts: []
-  pinPoint: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1327,6 +1305,7 @@ GameObject:
   - component: {fileID: 1079139738}
   - component: {fileID: 1079139737}
   - component: {fileID: 1079139736}
+  - component: {fileID: 1079139739}
   m_Layer: 5
   m_Name: Play
   m_TagString: Untagged
@@ -1405,7 +1384,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1448,6 +1427,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1079139734}
   m_CullTransparentMesh: 1
+--- !u!114 &1079139739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1079139734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae1b97351c805224eb60a341fdeb2520, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 1079139734}
 --- !u!1 &1123855718 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4638175653048864232, guid: 9417464858156614b910d4f5e265914e, type: 3}
@@ -1476,6 +1468,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1791298691, guid: 7692a99ac61f56549971bbb7c4b4bc07, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5106291866447226873, guid: 7692a99ac61f56549971bbb7c4b4bc07, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -2023,6 +2019,7 @@ GameObject:
   - component: {fileID: 1419006199}
   - component: {fileID: 1419006198}
   - component: {fileID: 1419006197}
+  - component: {fileID: 1419006200}
   m_Layer: 5
   m_Name: Tutorial
   m_TagString: Untagged
@@ -2144,6 +2141,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1419006195}
   m_CullTransparentMesh: 1
+--- !u!114 &1419006200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1419006195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae1b97351c805224eb60a341fdeb2520, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 1419006195}
 --- !u!1 &1617889642
 GameObject:
   m_ObjectHideFlags: 0
