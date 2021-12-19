@@ -11,7 +11,7 @@ public class PlayerMoveMent : MonoBehaviour
     bool isMoving = false;
     Rigidbody2D rb;
     Vector3 whereToMove, pos;
-    [SerializeField] public List<int> scoreList;
+    //[SerializeField] public List<int> scoreList;
 
     public Text soRac, soRac1, soRac2;
     public float speed = 2.0f;
@@ -19,7 +19,6 @@ public class PlayerMoveMent : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        score =  0; score1 = 0; score2 = 0;
     }
 
     // Update is called once per frame

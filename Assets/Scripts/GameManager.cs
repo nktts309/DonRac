@@ -14,7 +14,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] Text greenText;
     [SerializeField] Text redText;
     [SerializeField] Text yellowText;
-    [SerializeField] Text chatText;
 
     //SpawnTrash 
     [SerializeField] private GameObject[] prefab;
@@ -27,17 +26,18 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<RecycleBin> recycleBins = new List<RecycleBin>();
     private int lastBinId = -1;
     private int tempCount = 0;
-    //Focus sprite
-    private int sortingOrder = 2;
-    [SerializeField] private SpriteRenderer[] sprites;
+    //Get Scene
+    int id;
+    GameObject canvas;
 
     private void Awake()
-    {
-        if(Instance == null)
+    {      
+        if (Instance == null)
         {
             Instance = this;
         }
         DontDestroyOnLoad(this);
+        
     }
     public void Addredtrash()
     {
@@ -48,19 +48,27 @@ public class GameManager : MonoBehaviour
     public void Addgreentrash()
     {
         score1++;
-        greenText.text = score1.ToString();
         PlayerPrefs.SetInt("greenTrash", score1);
-    }
+        greenText.text = PlayerPrefs.GetInt("greenTrash").ToString();
+    }   
     public void Addyellowtrash()
     {
         score2++;
         yellowText.text = score2.ToString();
         PlayerPrefs.SetInt("yellowTrash", score2);
-    }
+    }   
     public void LoadNextScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         lastBinId = -1;
+        ResetText();
+        DeActivateCanvas();
+    }
+    public void LoadCollectTrash()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        ResetPref();
+        ActivateCanvas();
     }
 
     public void ButtonAnimate()
@@ -70,36 +78,54 @@ public class GameManager : MonoBehaviour
             button.transform.DOScale(0.5f, 0.5f);
         });
     }
-    public void OnRecycleTrash(int idBin = 0)
+    //public void OnRecycleTrash(int idBin = 0)
+    //{
+    //    if(idBin == lastBinId)
+    //    {
+    //        tempCount += 1;
+    //        if (tempCount >= 3)
+    //        {
+    //            // Show Popup
+    //            tempCount = 0;
+    //            // idBin là thùng nào đc ăn 3 lần liên tiếp rồi 
+    //            // => random show popup ở 2 thùng kia
+    //            var rd = Random.Range(0, recycleBins.Count);
+    //            while(rd == idBin)
+    //            {
+    //                rd = Random.Range(0, recycleBins.Count);
+    //            }
+    //            recycleBins[rd].ShowPopup();
+    //        }
+    //    }
+    //    else
+    //    {
+    //        tempCount = 0;
+    //    }
+    //    lastBinId = idBin;
+    //}    
+    void DeActivateCanvas()
     {
-        if(idBin == lastBinId)
-        {
-            tempCount += 1;
-            if (tempCount >= 3)
-            {
-                // Show Popup
-                tempCount = 0;
-                // idBin là thùng nào đc ăn 3 lần liên tiếp rồi 
-                // => random show popup ở 2 thùng kia
-                var rd = Random.Range(0, recycleBins.Count);
-                while(rd == idBin)
-                {
-                    rd = Random.Range(0, recycleBins.Count);
-                }
-                recycleBins[rd].ShowPopup();
-            }
-        }
-        else
-        {
-            tempCount = 0;
-        }
-        lastBinId = idBin;
+        canvas = GameObject.FindGameObjectWithTag("CanV") ;
+        canvas.GetComponent<Canvas>().enabled = false;        
     }
-    public void GetSprite()
+    void ActivateCanvas()
     {
-        foreach(var sprite in sprites)
-        {
-            sprite.sortingOrder = sortingOrder;
-        }
+        canvas = GameObject.FindGameObjectWithTag("CanV");
+        canvas.GetComponent<Canvas>().enabled = true;
+    }
+    public void ResetPref()
+    {
+        score = 0;
+        score1 = 0;
+        score2 = 0;
+        PlayerPrefs.SetInt("redTrash", 0);
+        PlayerPrefs.SetInt("greenTrash", 0);
+        PlayerPrefs.SetInt("yellowTrash", 0);
+    }
+    public void ResetText()
+    {
+        redText.text = "0";
+        greenText.text = "0";
+        yellowText.text = "0";
     }
 }

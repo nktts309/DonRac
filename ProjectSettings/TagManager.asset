@@ -11,6 +11,8 @@ TagManager:
   - GTC
   - YTC
   - Button
+  - Fish
+  - CanV
   layers:
   - Default
   - TransparentFX

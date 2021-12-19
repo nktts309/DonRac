@@ -25,6 +25,7 @@ public class LoadScene : MonoBehaviour
     IEnumerator LoadLevel (int index)
     {
         AsyncOperation operation = SceneManager.LoadSceneAsync(index);
+        GameManager.Instance.ResetPref();
         //NextLevel.SetActive(true);
         while (!operation.isDone)
         {
@@ -33,6 +34,14 @@ public class LoadScene : MonoBehaviour
             //percentage.text = progress * 100 + "%";
             yield return null;
         }
+    }
+    public void LoadNext()
+    {
+        GameManager.Instance.LoadCollectTrash();
+    }
+    public void QuitGame()
+    {
+        Application.Quit();
     }
     
 }

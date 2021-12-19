@@ -135,8 +135,7 @@ public class Categorise : MonoBehaviour
         if (rig.tag == "trash2")
         {
             if (collision.tag == "YTC")
-            {
-                
+            {               
                 score--;
                 count++;
                 CorrectText();

@@ -25,12 +25,18 @@ public class CamFocus : MonoBehaviour
             {
                 HideSprite(i - 1);
             }
-            if (i == 5)
+            if( i == 2)
             {
+                ShowSprite(2); ShowSprite(3); ShowSprite(4);
+            }
+            if (i == 3)
+            {
+                ShowSprite(5);
+                HideSprite(2); HideSprite(3); HideSprite(4);
                 break;
             }            
         }
-        if(touchCount == 6)
+        if(touchCount == 4)
         {
             focus.SetActive(false);
             touchCount = 0;
