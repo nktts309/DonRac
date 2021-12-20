@@ -35,6 +35,7 @@ public class Categorise : MonoBehaviour
         bubble.transform.DOScale(81f, 1f).OnComplete(()=> {
             bubble.transform.DOScale(0f, 2f).SetDelay(2.0f);
         });
+        
         currentPos = rig.transform.position;
         number.text = score.ToString();
         rig = GetComponent<Rigidbody2D>();
@@ -82,7 +83,12 @@ public class Categorise : MonoBehaviour
                 if (count >=3 && go1.Length >0)
                 {
                     count = 0;
-                    ConsecutiveTrash(greenTC);
+                    ConsecutiveTrash(greenTC);                   
+                }
+                if (count >= 3 && go1.Length == 0 && go2.Length > 0)
+                {
+                    count = 0;
+                    ConsecutiveTrash(yellowTC);
                 }
             }
             else if (collision.tag == "trash2" || collision.tag == "trash1")
@@ -113,6 +119,11 @@ public class Categorise : MonoBehaviour
                 {
                     count = 0;
                     ConsecutiveTrash(yellowTC);
+                }
+                if (count >= 3 && go2.Length == 0 && go.Length >0)
+                {
+                    count = 0;
+                    ConsecutiveTrash(redTC);
                 }
                 if (score == 0)
                 {
@@ -147,6 +158,11 @@ public class Categorise : MonoBehaviour
                 if (count >=3 && go.Length >0)
                 {
                     ConsecutiveTrash(redTC);
+                    count = 0;
+                }
+                if (count >= 3 && go.Length == 0 && go1.Length > 0)
+                {
+                    ConsecutiveTrash(greenTC);
                     count = 0;
                 }
                 if (score == 0)

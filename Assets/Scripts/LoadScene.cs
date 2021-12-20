@@ -8,30 +8,28 @@ using UnityEngine.UI;
 public class LoadScene : MonoBehaviour
 {
     public static LoadScene Instance;
-    public GameObject NextLevel;
-    public Slider slider;
-    public Text percentage;
-
-
+    public GameObject QuitPanel;
     public void LoadNextScene(int index)
     {
-        StartCoroutine(LoadLevel(index));
-        
+        StartCoroutine(LoadLevel(index));       
     }
     public void LoadTutorial()
     {
         SceneManager.LoadScene("Tutorial");
     }
+    public void LoadHomeScreen()
+    {
+        SceneManager.LoadScene("SampleScene");
+        GameManager.Instance.DeActivateCanvas();
+    }
     IEnumerator LoadLevel (int index)
     {
+        Time.timeScale = 1;
         AsyncOperation operation = SceneManager.LoadSceneAsync(index);
         GameManager.Instance.ResetPref();
-        //NextLevel.SetActive(true);
+        GameManager.Instance.ActivateCanvas();
         while (!operation.isDone)
         {
-            //float progress = Mathf.Clamp01(operation.progress /0.9f);
-            //slider.value = progress;
-            //percentage.text = progress * 100 + "%";
             yield return null;
         }
     }
@@ -42,6 +40,14 @@ public class LoadScene : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+    public void ShowPanel()
+    {
+        QuitPanel.SetActive(true);
+    }
+    public void HidePanel()
+    {
+        QuitPanel.SetActive(false);
     }
     
 }

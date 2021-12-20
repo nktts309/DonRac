@@ -9,7 +9,7 @@ public class RecycleBin : MonoBehaviour
     [SerializeField] private GameObject bubbleChat;
     [SerializeField] Text incorrectChatText;
     [SerializeField] private int id;
-    // Script cho tung thùng rác
+    // Script cho thùng rác
     public void ShowPopup()
     {
         // show câu cho tôi ăn rác ở mỗi thùng

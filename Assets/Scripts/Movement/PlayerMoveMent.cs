@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class PlayerMoveMent : MonoBehaviour
 {
@@ -19,6 +20,10 @@ public class PlayerMoveMent : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        if(SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            Time.timeScale = 0;
+        }
     }
 
     // Update is called once per frame

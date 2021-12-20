@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    [SerializeField] private GameObject bubble;
     private int score;
     private int score1;
     private int score2;
@@ -21,7 +20,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<GameObject> redTrash;
     [SerializeField] private List<GameObject> greenTrash;
     [SerializeField] private List<GameObject> yellowTrash;
-    [SerializeField] private GameObject pinPoint;
 
     [SerializeField] private List<RecycleBin> recycleBins = new List<RecycleBin>();
     private int lastBinId = -1;
@@ -103,12 +101,12 @@ public class GameManager : MonoBehaviour
     //    }
     //    lastBinId = idBin;
     //}    
-    void DeActivateCanvas()
+    public void DeActivateCanvas()
     {
         canvas = GameObject.FindGameObjectWithTag("CanV") ;
         canvas.GetComponent<Canvas>().enabled = false;        
     }
-    void ActivateCanvas()
+    public void ActivateCanvas()
     {
         canvas = GameObject.FindGameObjectWithTag("CanV");
         canvas.GetComponent<Canvas>().enabled = true;
