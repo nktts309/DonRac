@@ -16,17 +16,21 @@ public class LoadScene : MonoBehaviour
     public void LoadTutorial()
     {
         SceneManager.LoadScene("Tutorial");
+        GameManager.Instance.ActivateCanvas();
+        GameManager.Instance.ResetPref();
     }
     public void LoadHomeScreen()
     {
         SceneManager.LoadScene("SampleScene");
         GameManager.Instance.DeActivateCanvas();
+        Time.timeScale = 1;
     }
     IEnumerator LoadLevel (int index)
     {
         Time.timeScale = 1;
         AsyncOperation operation = SceneManager.LoadSceneAsync(index);
         GameManager.Instance.ResetPref();
+        GameManager.Instance.ResetText();
         GameManager.Instance.ActivateCanvas();
         while (!operation.isDone)
         {
@@ -48,6 +52,5 @@ public class LoadScene : MonoBehaviour
     public void HidePanel()
     {
         QuitPanel.SetActive(false);
-    }
-    
+    }   
 }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1062128097246240454}
   - component: {fileID: 5734475399442434079}
   - component: {fileID: 2403845844394074892}
+  - component: {fileID: 4837655135469445303}
   m_Layer: 0
   m_Name: TaiChe
   m_TagString: trash0
@@ -91,13 +92,13 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8197317680871176118}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.028069973, y: 0.03742689}
+  m_Offset: {x: 0.045940816, y: 0.019556016}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -108,7 +109,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.6567254, y: 0.42514622}
+  m_Size: {x: 0.58313954, y: 0.32212585}
   m_EdgeRadius: 0
 --- !u!114 &2403845844394074892
 MonoBehaviour:
@@ -124,3 +125,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   idTrash: 3
   id: []
+--- !u!60 &4837655135469445303
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8197317680871176118}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.9, y: 0.5}
+    newSize: {x: 0.9, y: 0.5}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.1991354, y: 0.14374596}
+      - {x: 0.111620545, y: 0.1479671}
+      - {x: 0.081977844, y: 0.17179435}
+      - {x: -0.1178975, y: 0.13113123}
+      - {x: -0.23266804, y: 0.09266805}
+      - {x: -0.22005332, y: -0.026360687}
+      - {x: -0.18738526, y: -0.123180285}
+      - {x: -0.05630736, y: -0.104258195}
+      - {x: 0.21464181, y: -0.00980413}
+      - {x: 0.25590166, y: 0.023639252}
+      - {x: 0.33318028, y: 0.044717222}
+      - {x: 0.30795082, y: 0.16528283}

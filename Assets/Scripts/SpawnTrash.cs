@@ -41,7 +41,7 @@ public class SpawnTrash : MonoBehaviour
         GameObject newTrash = (GameObject)Instantiate(prefab[index]);
         currentList.Add(newTrash);
        
-        newTrash.transform.position = new Vector2(Random.Range(-10, 10), Random.Range(-3, -4.5f));
+        newTrash.transform.position = new Vector2(Random.Range(-8, 8), Random.Range(-3, -4.5f));
     }
     public void GenerateTrash(GameObject trash)
     {
@@ -53,7 +53,7 @@ public class SpawnTrash : MonoBehaviour
         }
         else if(currentList.Count == 0 && trashCounts[0].countTrash == 0 && trashCounts[1].countTrash == 0 && trashCounts[2].countTrash == 0)
         {
-            nextLevelPanel.transform.DOScale(1, 1f);
+            nextLevelPanel.transform.DOScale(0.7f, 1f);
             Invoke("LoadLevel", 3.0f);
         }
     }

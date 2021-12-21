@@ -19,8 +19,8 @@ public class ButtonAnimation : MonoBehaviour
     }
     void ButtonAnimate()
     {
-        button.transform.DOScale(1.2f, 1).OnComplete(() => {
-            button.transform.DOScale(1, 1).OnComplete(()=> {
+        button.transform.DOScale(0.75f, 1).OnComplete(() => {
+            button.transform.DOScale(0.6f, 1).OnComplete(()=> {
                 ButtonAnimate();
             });
         });

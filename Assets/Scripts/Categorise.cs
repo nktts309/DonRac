@@ -32,7 +32,7 @@ public class Categorise : MonoBehaviour
         greenTC = GameObject.Find("GreenTC");
         yellowTC = GameObject.Find("YellowTC");
         rig = GetComponent<Rigidbody2D>();
-        bubble.transform.DOScale(81f, 1f).OnComplete(()=> {
+        bubble.transform.DOScale(54f, 1f).OnComplete(()=> {
             bubble.transform.DOScale(0f, 2f).SetDelay(2.0f);
         });
         
@@ -100,7 +100,6 @@ public class Categorise : MonoBehaviour
                 count = 0;
                 InCorrectTrash(redTC);
                 InCorrectText();
-                ScaleAnimate();
             }
         }
         if (rig.tag == "trash1")
@@ -139,8 +138,7 @@ public class Categorise : MonoBehaviour
             {
                 count = 0;
                 InCorrectTrash(greenTC);
-                InCorrectText();
-                ScaleAnimate();                
+                InCorrectText();              
             }
         }
         if (rig.tag == "trash2")
@@ -180,7 +178,6 @@ public class Categorise : MonoBehaviour
                 count = 0;
                 InCorrectTrash(yellowTC);
                 InCorrectText();
-                ScaleAnimate();
             }
         }
     }
@@ -202,7 +199,7 @@ public class Categorise : MonoBehaviour
     }
     void BubbleSpawn()
     {
-        tweenMove = bubble.transform.DOScale(81.0f, 0.5f).OnComplete(() => {
+        tweenMove = bubble.transform.DOScale(54.0f, 0.5f).OnComplete(() => {
             tweenMove =bubble.transform.DOScale(0, 1.0f).SetDelay(1.0f);         
         });      
         bubble.SetActive(true);

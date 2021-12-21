@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3983330816272562441}
   - component: {fileID: 348190780052259565}
   - component: {fileID: -4373706205058265110}
+  - component: {fileID: 4167744338093503190}
   m_Layer: 0
   m_Name: TrashU
   m_TagString: trash0
@@ -91,6 +92,46 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 238771482243668373}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.027350642, y: -0.014395088}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.63, y: 0.57}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.47889858, y: 0.48177767}
+  m_EdgeRadius: 0
+--- !u!114 &-4373706205058265110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 238771482243668373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c26176d678c0084ba3d821c7c08f45a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  idTrash: 1
+  id: []
+--- !u!60 &4167744338093503190
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 238771482243668373}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -107,20 +148,16 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
---- !u!114 &-4373706205058265110
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 238771482243668373}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c26176d678c0084ba3d821c7c08f45a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  idTrash: 1
-  id: []
+  m_Points:
+    m_Paths:
+    - - {x: 0.09757283, y: 0.20348394}
+      - {x: 0.045153096, y: 0.16317776}
+      - {x: -0.061123013, y: 0.044733446}
+      - {x: -0.19772592, y: -0.050758023}
+      - {x: -0.17757283, y: -0.12484691}
+      - {x: -0.09787901, y: -0.21181479}
+      - {x: -0.06924196, y: -0.23620984}
+      - {x: -0.020758025, y: -0.24196789}
+      - {x: 0.07166169, y: -0.0787827}
+      - {x: 0.265, y: 0.015}
+      - {x: 0.2534839, y: 0.0518148}

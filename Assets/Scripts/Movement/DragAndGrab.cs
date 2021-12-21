@@ -10,37 +10,32 @@ public class DragAndGrab : MonoBehaviour
     private Vector3 offset;
     private Vector3 startPos;
     private bool isTriggered = false;
-    private bool isCorrect = false;
     public static DragAndGrab Instance;
     // Start is called before the first frame update
     void Start()
     {
-        rig = GetComponent<Rigidbody2D>();
-        startPos = rig.transform.position;
+        startPos = transform.position;
+        rig = GetComponent<Rigidbody2D>();      
     }
     private void OnMouseDown()
     {
         screenPoint = Camera.main.WorldToScreenPoint(gameObject.transform.position);
         offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
-
     }
     private void OnMouseUp()
-    {
-        if (isTriggered)
-        {
-            rig.transform.position = startPos;
-        }
-        else
-        {
+    {       
             isTriggered = false;
             rig.transform.DOMove(startPos, 1.0f);
-        }
     }
     void OnMouseDrag()
     {
         Vector3 curScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
         Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint) + offset;
         transform.position = curPosition;
+        if (isTriggered)
+        {
+            rig.transform.position = startPos;
+        }
 
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -52,15 +47,18 @@ public class DragAndGrab : MonoBehaviour
 
             }
             else 
-            {
-                if (collision.tag == "RTC")
+            {               
+                if (collision.tag != "RTC")
                 {
-                    isTriggered = true;
+
+                    isTriggered = false;
+                    rig.transform.DOMove(startPos, 1.0f);
                 }
                 else
                 {
-                    isTriggered = false;
-                }             
+                    isTriggered = true;
+                    transform.position = startPos;
+                }                             
             }
         }
         if (rig.tag == "trash1")
@@ -74,10 +72,12 @@ public class DragAndGrab : MonoBehaviour
                 if (collision.tag == "GTC")
                 {
                     isTriggered = true;
+                    transform.position = startPos;
                 }
                 else
                 {
                     isTriggered = false;
+                    rig.transform.DOMove(startPos, 1.0f);
                 }
             }
         }
@@ -92,10 +92,12 @@ public class DragAndGrab : MonoBehaviour
                 if (collision.tag == "YTC")
                 {
                     isTriggered = true;
+                    transform.position = startPos;
                 }
                 else
                 {
                     isTriggered = false;
+                    rig.transform.DOMove(startPos, 1.0f);
                 }
             }
         }
