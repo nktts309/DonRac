@@ -23,8 +23,4 @@ public class End : MonoBehaviour
             panel.SetActive(true);
         }
     }
-    private void OnMouseOver()
-    {
-        
-    }
 }

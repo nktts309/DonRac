@@ -2,16 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class SpawnTrash : MonoBehaviour
 {
 
     public static SpawnTrash Instance;
     public GameObject nextLevelPanel;
+    int highScore;
     [SerializeField] private GameObject[] prefab;
     [SerializeField] private List<GameObject> currentList;
     [SerializeField] private TrashCount[] trashCounts;
-    [SerializeField] private GameObject pinPoint;
+    [SerializeField] private Text scoreText;
+    [SerializeField] private Text highScoreText;
     // Start is called before the first frame update
     [System.Serializable]
     public struct TrashCount
@@ -22,6 +26,7 @@ public class SpawnTrash : MonoBehaviour
     void Start()
     {
         nextLevelPanel.transform.DOScale(0, 0);
+        highScore = PlayerPrefs.GetInt(SceneManager.GetActiveScene().name);
     }
     private void Awake()
     {
@@ -54,6 +59,13 @@ public class SpawnTrash : MonoBehaviour
         else if(currentList.Count == 0 && trashCounts[0].countTrash == 0 && trashCounts[1].countTrash == 0 && trashCounts[2].countTrash == 0)
         {
             nextLevelPanel.transform.DOScale(0.7f, 1f);
+            GameManager.Instance.AddScore();
+            if (PlayerPrefs.GetInt("Score") > highScore)
+            {
+                highScore = PlayerPrefs.GetInt("Score");
+            }
+            scoreText.text = "Score " + PlayerPrefs.GetInt("Score");
+            highScoreText.text = "HighScore " + PlayerPrefs.GetInt(SceneManager.GetActiveScene().name);
             Invoke("LoadLevel", 3.0f);
         }
     }

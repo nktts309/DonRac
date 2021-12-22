@@ -7,9 +7,8 @@ using DG.Tweening;
 
 public class Categorise : MonoBehaviour
 {
-    int score, redT, greenT, yellowT;
+    int score;
     int count = 0;
-    Vector2 currentPos;
     Rigidbody2D rig;
     GameObject redTC, greenTC, yellowTC;
     GameObject[] go, go1, go2;
@@ -23,10 +22,6 @@ public class Categorise : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {       
-        //Set số rác mỗi loại
-        redT = PlayerPrefs.GetInt("redTrash");
-        greenT = PlayerPrefs.GetInt("greenTrash");
-        yellowT = PlayerPrefs.GetInt("yellowTrash");
         //Tìm thùng rác
         redTC = GameObject.Find("RedTC");
         greenTC = GameObject.Find("GreenTC");
@@ -35,21 +30,31 @@ public class Categorise : MonoBehaviour
         bubble.transform.DOScale(54f, 1f).OnComplete(()=> {
             bubble.transform.DOScale(0f, 2f).SetDelay(2.0f);
         });
-        
-        currentPos = rig.transform.position;
         number.text = score.ToString();
         rig = GetComponent<Rigidbody2D>();
         if (rig.tag == "trash0")
         {
             score = PlayerPrefs.GetInt("redTrash");
+            if(score == 0)
+            {
+                Destroy(gameObject);
+            }
         }
         if (rig.tag == "trash1")
         {
             score = PlayerPrefs.GetInt("greenTrash");
+            if (score == 0)
+            {
+                Destroy(gameObject);
+            }
         }
         if (rig.tag == "trash2")
         {
             score = PlayerPrefs.GetInt("yellowTrash");
+            if (score == 0)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 
@@ -194,7 +199,7 @@ public class Categorise : MonoBehaviour
     void ScaleAnimate()
     {
         transform.DOScale(1.0f, 0.2f).OnComplete(() => {
-            transform.DOScale(2.0f, 0.2f);
+            transform.DOScale(2.5f, 0.2f);
         });
     }
     void BubbleSpawn()

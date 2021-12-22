@@ -9,6 +9,7 @@ public class LoadScene : MonoBehaviour
 {
     public static LoadScene Instance;
     public GameObject QuitPanel;
+    public GameObject ScorePanel;
     public void LoadNextScene(int index)
     {
         StartCoroutine(LoadLevel(index));       
@@ -31,6 +32,7 @@ public class LoadScene : MonoBehaviour
         AsyncOperation operation = SceneManager.LoadSceneAsync(index);
         GameManager.Instance.ResetPref();
         GameManager.Instance.ResetText();
+        GameManager.Instance.ResetScore();
         GameManager.Instance.ActivateCanvas();
         while (!operation.isDone)
         {
@@ -52,5 +54,13 @@ public class LoadScene : MonoBehaviour
     public void HidePanel()
     {
         QuitPanel.SetActive(false);
-    }   
+    }
+    public void ShowScore()
+    {
+        ScorePanel.SetActive(true);
+    }
+    public void HideScore()
+    {
+        ScorePanel.SetActive(false);
+    }
 }

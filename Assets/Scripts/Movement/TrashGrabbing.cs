@@ -29,16 +29,19 @@ public class TrashGrabbing : MonoBehaviour
         if (gameObject.tag == "trash0")
         {
             GameManager.Instance.Addredtrash();
+            GameManager.Instance.AddScore();
             isRed = true;
         }
         else if (gameObject.tag == "trash1")
         {
             GameManager.Instance.Addgreentrash();
+            GameManager.Instance.AddScore();
             isGreen = true;
         }
         else if (gameObject.tag == "trash2")
         {
             GameManager.Instance.Addyellowtrash();
+            GameManager.Instance.AddScore();
             isYellow = true;
         }
         else

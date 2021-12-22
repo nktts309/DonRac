@@ -25,8 +25,11 @@ public class GameManager : MonoBehaviour
     private int lastBinId = -1;
     private int tempCount = 0;
     //Get Scene
-    int id;
     GameObject canvas;
+    //Get score and highscore
+    private int scoreCollect;
+    private int highScore ;
+    private int highScore1 ;
 
     private void Awake()
     {      
@@ -35,7 +38,8 @@ public class GameManager : MonoBehaviour
             Instance = this;
         }
         DontDestroyOnLoad(this);
-        
+        highScore = PlayerPrefs.GetInt("PlayScene");
+        highScore1 = PlayerPrefs.GetInt("PlayScene1");
     }
     public void Addredtrash()
     {
@@ -66,6 +70,7 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         ResetPref();
+        ResetScore();
         ActivateCanvas();
     }
 
@@ -125,5 +130,32 @@ public class GameManager : MonoBehaviour
         redText.text = "0";
         greenText.text = "0";
         yellowText.text = "0";
+    }
+    public void AddScore()
+    {
+        scoreCollect += 10;
+        PlayerPrefs.SetInt("Score", scoreCollect);
+        if (SceneManager.GetActiveScene().buildIndex == 3)
+        {
+            if (scoreCollect > highScore)
+            {
+                highScore = scoreCollect;
+                PlayerPrefs.SetInt(SceneManager.GetActiveScene().name, highScore);
+            }
+        }      
+        if (SceneManager.GetActiveScene().buildIndex == 5)
+        {
+            if (scoreCollect > highScore1)
+            {
+                highScore1 = scoreCollect;
+                PlayerPrefs.SetInt(SceneManager.GetActiveScene().name, highScore1);
+            }         
+        }
+
+    }
+    public void ResetScore()
+    {
+        scoreCollect = 0;
+        PlayerPrefs.SetInt("Score", 0);
     }
 }
