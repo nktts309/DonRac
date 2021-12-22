@@ -27,19 +27,19 @@ public class TrashGrabbing : MonoBehaviour
     public void OnMouseDown()
     {
         //GameManager.Instance.OnCollectTrash(this);
-        if (gameObject.tag == "trash0")
+        if (gameObject.CompareTag("trash0"))
         {
             GameManager.Instance.Addredtrash();
             GameManager.Instance.AddScore();
             isRed = true;
         }
-        else if (gameObject.tag == "trash1")
+        else if (gameObject.CompareTag("trash1"))
         {
             GameManager.Instance.Addgreentrash();
             GameManager.Instance.AddScore();
             isGreen = true;
         }
-        else if (gameObject.tag == "trash2")
+        else if (gameObject.CompareTag("trash2"))
         {
             GameManager.Instance.Addyellowtrash();
             GameManager.Instance.AddScore();

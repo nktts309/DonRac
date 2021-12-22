@@ -68,7 +68,7 @@ public class Categorise : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (rig.tag == "trash0")
+        if (rig.CompareTag("trash0"))
         {
             if (collision.tag == "RTC")
             {
@@ -96,7 +96,7 @@ public class Categorise : MonoBehaviour
                     ConsecutiveTrash(yellowTC);
                 }
             }
-            else if (collision.tag == "trash2" || collision.tag == "trash1")
+            else if (collision.CompareTag("trash2") || collision.CompareTag("trash1"))
             {
 
             }
@@ -107,7 +107,7 @@ public class Categorise : MonoBehaviour
                 InCorrectText();
             }
         }
-        if (rig.tag == "trash1")
+        if (rig.CompareTag("trash1"))
         {
             if (collision.tag == "GTC")
             {
@@ -135,7 +135,7 @@ public class Categorise : MonoBehaviour
                     Destroy(gameObject);
                 }
             }
-            else if (collision.tag == "trash0" || collision.tag == "trash2")
+            else if (collision.CompareTag("trash0") || collision.CompareTag("trash2"))
             {
 
             }
@@ -146,7 +146,7 @@ public class Categorise : MonoBehaviour
                 InCorrectText();              
             }
         }
-        if (rig.tag == "trash2")
+        if (rig.CompareTag("trash2"))
         {
             if (collision.tag == "YTC")
             {               
@@ -174,7 +174,7 @@ public class Categorise : MonoBehaviour
                     Destroy(gameObject);
                 }
             }
-            else if(collision.tag == "trash0"|| collision.tag == "trash1")
+            else if(collision.CompareTag("trash0") || collision.CompareTag("trash1"))
             {
 
             }

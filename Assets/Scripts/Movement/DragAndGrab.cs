@@ -40,15 +40,15 @@ public class DragAndGrab : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (rig.tag == "trash0")
+        if (rig.CompareTag("trash0"))
         {
-             if (collision.tag == "trash2" || collision.tag == "trash1")
+             if (collision.CompareTag("trash2") || collision.CompareTag("trash1"))
             {
 
             }
             else 
             {               
-                if (collision.tag != "RTC")
+                if (!collision.CompareTag("RTC"))
                 {
 
                     isTriggered = false;
@@ -61,15 +61,15 @@ public class DragAndGrab : MonoBehaviour
                 }                             
             }
         }
-        if (rig.tag == "trash1")
+        if (rig.CompareTag("trash1"))
         {
-            if (collision.tag == "trash2" || collision.tag == "trash0")
+            if (collision.CompareTag("trash2") || collision.CompareTag("trash0"))
             {
 
             }
             else
             {
-                if (collision.tag == "GTC")
+                if (collision.CompareTag("GTC"))
                 {
                     isTriggered = true;
                     transform.position = startPos;
@@ -81,15 +81,15 @@ public class DragAndGrab : MonoBehaviour
                 }
             }
         }
-        if (rig.tag == "trash2")
+        if (rig.CompareTag("trash2"))
         {
-            if (collision.tag == "trash0" || collision.tag == "trash1")
+            if (collision.CompareTag("trash0") || collision.CompareTag("trash1"))
             {
 
             }
             else
             {
-                if (collision.tag == "YTC")
+                if (collision.CompareTag("YTC"))
                 {
                     isTriggered = true;
                     transform.position = startPos;
