@@ -437,7 +437,7 @@ PrefabInstance:
       objectReference: {fileID: 1215701397}
     - target: {fileID: 1698110707769948482, guid: b240923ebff420b44896f76f298fc9ec, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1746577520436587691, guid: b240923ebff420b44896f76f298fc9ec, type: 3}
       propertyPath: m_Name
@@ -678,7 +678,7 @@ PrefabInstance:
       objectReference: {fileID: 1766384316}
     - target: {fileID: -4373706205058265110, guid: f7d4e2ce561662d408bf6120118246a4, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 238771482243668373, guid: f7d4e2ce561662d408bf6120118246a4, type: 3}
       propertyPath: m_Name
@@ -937,6 +937,7 @@ GameObject:
   - component: {fileID: 497802726}
   - component: {fileID: 497802725}
   - component: {fileID: 497802724}
+  - component: {fileID: 497802727}
   m_Layer: 5
   m_Name: Return
   m_TagString: Untagged
@@ -961,7 +962,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -850, y: 450}
+  m_AnchoredPosition: {x: -864, y: 384}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &497802724
@@ -1058,6 +1059,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 497802722}
   m_CullTransparentMesh: 1
+--- !u!114 &497802727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 497802722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10af23b7238f6214ca994d2bb54ba071, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anchorType: 6
+  anchorOffset: {x: 1, y: -1, z: 0}
 --- !u!1001 &500039272
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1201,7 +1216,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.625
+  orthographic size: 5
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -2019,6 +2034,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1018970029}
   - component: {fileID: 1018970030}
+  - component: {fileID: 1018970031}
   m_Layer: 5
   m_Name: HighScoreTable
   m_TagString: Untagged
@@ -2046,7 +2062,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -72}
   m_SizeDelta: {x: 2000, y: 1200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1018970030
@@ -2061,6 +2077,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e02ec5d9a3c6bf747805c8673aa7f642, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1018970031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1018970028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10af23b7238f6214ca994d2bb54ba071, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anchorType: 4
+  anchorOffset: {x: 0, y: -0.75, z: 0}
 --- !u!1 &1052244558
 GameObject:
   m_ObjectHideFlags: 0
@@ -3117,7 +3147,7 @@ PrefabInstance:
       objectReference: {fileID: 454316185}
     - target: {fileID: 3990539787612722628, guid: 96998af39a02f69488378e85dd8ce6bf, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4199845576376331685, guid: 96998af39a02f69488378e85dd8ce6bf, type: 3}
       propertyPath: m_Name
@@ -4002,6 +4032,7 @@ GameObject:
   - component: {fileID: 1770374023}
   - component: {fileID: 1770374025}
   - component: {fileID: 1770374024}
+  - component: {fileID: 1770374026}
   m_Layer: 5
   m_Name: HighScore
   m_TagString: Untagged
@@ -4068,6 +4099,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1770374022}
   m_CullTransparentMesh: 1
+--- !u!114 &1770374026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1770374022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10af23b7238f6214ca994d2bb54ba071, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anchorType: 4
+  anchorOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &1827977970
 GameObject:
   m_ObjectHideFlags: 0

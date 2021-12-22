@@ -51,23 +51,23 @@ public class SpawnTrash : MonoBehaviour
     public void GenerateTrash(GameObject trash)
     {
         currentList.Remove(trash);
-        Destroy(trash);       
-        if (currentList.Count < 5 && (trashCounts[0].countTrash != 0 | trashCounts[1].countTrash != 0 | trashCounts[2].countTrash != 0))
-        {
-                AddTrash();
-        }
-        else if(currentList.Count == 0 && trashCounts[0].countTrash == 0 && trashCounts[1].countTrash == 0 && trashCounts[2].countTrash == 0)
-        {
-            nextLevelPanel.transform.DOScale(0.7f, 1f);
-            GameManager.Instance.AddScore();
-            if (PlayerPrefs.GetInt("Score") > highScore)
+        Destroy(trash);                              
+            if (currentList.Count < 5 && (trashCounts[0].countTrash != 0 | trashCounts[1].countTrash != 0 | trashCounts[2].countTrash != 0))
             {
-                highScore = PlayerPrefs.GetInt("Score");
+                AddTrash();
             }
-            scoreText.text = "Score " + PlayerPrefs.GetInt("Score");
-            highScoreText.text = "HighScore " + PlayerPrefs.GetInt(SceneManager.GetActiveScene().name);
-            Invoke("LoadLevel", 3.0f);
-        }
+            else if (currentList.Count == 0 && trashCounts[0].countTrash == 0 && trashCounts[1].countTrash == 0 && trashCounts[2].countTrash == 0)
+            {
+                nextLevelPanel.transform.DOScale(0.7f, 1f);
+                GameManager.Instance.AddScore();
+                if (PlayerPrefs.GetInt("Score") > highScore)
+                {
+                    highScore = PlayerPrefs.GetInt("Score");
+                }
+                scoreText.text = "Score " + PlayerPrefs.GetInt("Score");
+                highScoreText.text = "HighScore " + PlayerPrefs.GetInt(SceneManager.GetActiveScene().name);
+                Invoke("LoadLevel", 3.0f);
+            }       
     }
     void LoadLevel()
     {

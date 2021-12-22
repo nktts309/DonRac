@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 public class TrashGrabbing : MonoBehaviour
 {
     bool  isRed = false, isGreen = false, isYellow = false;
@@ -52,19 +53,32 @@ public class TrashGrabbing : MonoBehaviour
     }
     void Cautch()
     {
-        var posTrashBin = isRed ? TrashCan : isGreen ? TrashCan1 : TrashCan2;
-        transform.DOMove(posTrashBin.transform.position, 1f).SetEase(Ease.Linear).OnComplete(() => {
-            transform.DOScale(1.5f, 0.1f).OnComplete(() =>
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            var posTrashBin = isRed ? TrashCan : isGreen ? TrashCan1 : TrashCan2;
+            transform.DOMove(posTrashBin.transform.position, 1f).SetEase(Ease.Linear).OnComplete(() =>
             {
-                transform.DOScale(0, 0.1f).OnComplete(() =>
+                transform.DOScale(1.5f, 0.1f).OnComplete(() =>
                 {
-                    SpawnTrash.Instance.GenerateTrash(this.gameObject);
+                    transform.DOScale(0, 0.1f).OnComplete(() =>
+                    {
+                    });
                 });
             });
-            //DOVirtual.DelayedCall(5f, () => {
-                //DestroyTrash();
-            //});
-        });
-
+        }
+        else
+        {
+            var posTrashBin = isRed ? TrashCan : isGreen ? TrashCan1 : TrashCan2;
+            transform.DOMove(posTrashBin.transform.position, 1f).SetEase(Ease.Linear).OnComplete(() =>
+            {
+                transform.DOScale(1.5f, 0.1f).OnComplete(() =>
+                {
+                    transform.DOScale(0, 0.1f).OnComplete(() =>
+                    {
+                        SpawnTrash.Instance.GenerateTrash(this.gameObject);
+                    });
+                });                
+            });
+        }
     }
 }

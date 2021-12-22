@@ -5,17 +5,17 @@ using DG.Tweening;
 using UnityEngine.SceneManagement;
 public class FishMovement : MonoBehaviour
 {
-    Vector2 startPos;
+    Vector2 startPos, endPos, jumpPos;
     public GameObject Player;
     Tween tweenMove=null;
     int sceneIndex;
-    Vector2 endPos;
         
     // Start is called before the first frame update
     void Start()
     {
         startPos = new Vector2(-8.0f, -3.6f);
-        endPos = new Vector2(8.5f, -3.5f);
+        endPos = new Vector2(8.5f, -3.6f);
+        jumpPos = new Vector2(-8, -3.6f);
         sceneIndex = SceneManager.GetActiveScene().buildIndex;
         if(sceneIndex == 3)
         {
@@ -29,7 +29,7 @@ public class FishMovement : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        if (sceneIndex == 3)
+        if (sceneIndex == 3 || sceneIndex == 1)
         {
             if (tweenMove != null) tweenMove.Kill();
             transform.DOShakePosition(1f, 1.5f, 2, 9).OnComplete(() => {
@@ -72,4 +72,18 @@ public class FishMovement : MonoBehaviour
             });
         });
     }
+    //void RabbitMove()
+    //{
+    //    transform.localScale = new Vector3(1.5f, 1.5f);
+    //    for (float i=0; i<=8; i++)
+    //    {
+    //        tweenMove = transform.DOMoveX(jumpPos.x + i, 1f).SetEase(Ease.Linear).OnComplete(() => {
+    //            if (tweenMove != null) tweenMove.Kill();
+    //            transform.localScale = new Vector3(-1.5f, 1.5f);
+    //            tweenMove = transform.DOJump(endPos , 1f, 6, 6).SetSpeedBased(true).SetEase(Ease.Linear).OnComplete(() => {
+    //                RabbitMove();
+    //            });
+    //        });
+    //    }
+    //}
 }
