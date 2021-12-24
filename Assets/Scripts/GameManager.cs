@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     private int score;
     private int score1;
     private int score2;
+    private int huuCo, voCo, taiChe;
     [SerializeField] Text greenText;
     [SerializeField] Text redText;
     [SerializeField] Text yellowText;
@@ -28,7 +29,7 @@ public class GameManager : MonoBehaviour
     GameObject canvas;
     //Get score and highscore
     private int scoreCollect;
-    private int highScore ;
+    private int highScore;
     private int highScore1 ;
 
     private void Awake()
@@ -59,6 +60,39 @@ public class GameManager : MonoBehaviour
         yellowText.text = score2.ToString();
         PlayerPrefs.SetInt("yellowTrash", score2);
     }   
+    public void RemoveRedTrash()
+    {
+        score--;
+        PlayerPrefs.SetInt("redTrash", score);
+    }
+    public void RemoveGreenTrash()
+    {
+        score1--;
+        PlayerPrefs.SetInt("greenTrash", score1);
+    }
+    public void RemoveYellowTrash()
+    {
+        score2--;
+        PlayerPrefs.SetInt("yellowTrash", score2);
+    }
+    public void AddOrganic()
+    {
+        huuCo++;
+        PlayerPrefs.SetInt("HuuCo", huuCo);
+        Debug.Log("HuuCo" + huuCo);
+    }
+    public void AddInOrganic()
+    {
+        voCo++;
+        PlayerPrefs.SetInt("VoCo", voCo);
+        Debug.Log("VoCo" + voCo);
+    }
+    public void AddRecycle()
+    {
+        taiChe++;
+        PlayerPrefs.SetInt("TaiChe", taiChe);
+        Debug.Log("TaiChe" + taiChe);
+    }
     public void LoadNextScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
@@ -73,7 +107,6 @@ public class GameManager : MonoBehaviour
         ResetScore();
         ActivateCanvas();
     }
-
     public void ButtonAnimate()
     {
         GameObject button = new GameObject();
@@ -124,6 +157,9 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetInt("redTrash", 0);
         PlayerPrefs.SetInt("greenTrash", 0);
         PlayerPrefs.SetInt("yellowTrash", 0);
+        PlayerPrefs.SetInt("HuuCo", 0);
+        PlayerPrefs.SetInt("VoCo", 0);
+        PlayerPrefs.SetInt("TaiChe", 0);
     }
     public void ResetText()
     {

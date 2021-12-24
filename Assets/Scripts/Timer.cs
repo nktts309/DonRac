@@ -55,6 +55,7 @@ public class Timer : MonoBehaviour
     }
     void LoadLevel()
     {
-        GameManager.Instance.LoadNextScene();       
+        GameManager.Instance.LoadNextScene();
+        ScoreManager.Instance.ResetScore();
     }
 }

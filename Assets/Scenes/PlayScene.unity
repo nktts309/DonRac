@@ -827,6 +827,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea207e2400b7fb645a13e54833748b45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &567417821 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5106291866447226873, guid: 7692a99ac61f56549971bbb7c4b4bc07, type: 3}
+  m_PrefabInstance: {fileID: 567417818}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &616752627
 GameObject:
   m_ObjectHideFlags: 0
@@ -1321,7 +1326,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4492728507376594150, guid: 9417464858156614b910d4f5e265914e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.08
+      value: -3.5
       objectReference: {fileID: 0}
     - target: {fileID: 4492728507376594150, guid: 9417464858156614b910d4f5e265914e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1628,7 +1633,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bd8ef387269b694bb935a7693dd7c59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 1791298690}
+  player: {fileID: 567417821}
+  jumpHeight: 2
 --- !u!58 &1198629706
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2274,7 +2280,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -400, y: 400}
-  m_SizeDelta: {x: 550, y: 300}
+  m_SizeDelta: {x: 500, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1835573056
 MonoBehaviour:

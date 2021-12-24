@@ -455,7 +455,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 122e110c6d0f8be449e7301ea2ba913f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeRemaining: 20
+  timeRemaining: 25
   timeText: {fileID: 196603690}
   nextLevelPanel: {fileID: 1297021685}
   scoreText: {fileID: 1262959821}
@@ -1191,6 +1191,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea207e2400b7fb645a13e54833748b45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &567417821 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5106291866447226873, guid: 7692a99ac61f56549971bbb7c4b4bc07, type: 3}
+  m_PrefabInstance: {fileID: 567417818}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &616752627
 GameObject:
   m_ObjectHideFlags: 0
@@ -1809,6 +1814,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TaiChe
       objectReference: {fileID: 0}
+    - target: {fileID: 8197317680871176118, guid: cf5cbb7c78e54e14b8fce4c2484a84e1, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf5cbb7c78e54e14b8fce4c2484a84e1, type: 3}
 --- !u!1 &959602945 stripped
@@ -1827,6 +1836,10 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 1791298690}
+    - target: {fileID: -3136951654795229726, guid: 9417464858156614b910d4f5e265914e, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 567417821}
     - target: {fileID: -3136951654795229726, guid: 9417464858156614b910d4f5e265914e, type: 3}
       propertyPath: distance.x
       value: 18
@@ -2167,19 +2180,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4638175653048864232, guid: 9417464858156614b910d4f5e265914e, type: 3}
   m_PrefabInstance: {fileID: 988760600}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1198629705
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1198629704}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5bd8ef387269b694bb935a7693dd7c59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Player: {fileID: 1791298690}
 --- !u!58 &1198629706
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2276,7 +2276,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -400, y: 400}
-  m_SizeDelta: {x: 550, y: 300}
+  m_SizeDelta: {x: 500, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1262959821
 MonoBehaviour:
@@ -2476,6 +2476,10 @@ PrefabInstance:
     - target: {fileID: 8865487720422181333, guid: 0b7bfb135dfcd9b479beb92d0d3a46f5, type: 3}
       propertyPath: m_Name
       value: HuuCo
+      objectReference: {fileID: 0}
+    - target: {fileID: 8865487720422181333, guid: 0b7bfb135dfcd9b479beb92d0d3a46f5, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b7bfb135dfcd9b479beb92d0d3a46f5, type: 3}
@@ -2738,6 +2742,10 @@ PrefabInstance:
     - target: {fileID: 8321160565773695271, guid: ed3a2569234cd884fa27bc252b6430cd, type: 3}
       propertyPath: m_Name
       value: VoCo
+      objectReference: {fileID: 0}
+    - target: {fileID: 8321160565773695271, guid: ed3a2569234cd884fa27bc252b6430cd, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 8414856647045118199, guid: ed3a2569234cd884fa27bc252b6430cd, type: 3}
       propertyPath: m_SortingOrder

@@ -18,7 +18,7 @@ public class HighScore : MonoBehaviour
         container = transform.Find("ScoreContainer");
         template = container.Find("ScoreTemplate");
         template.gameObject.SetActive(false);
-        for (int i=0; i <3 ; i++)
+        for (int i=0; i <5 ; i++)
         {
             Transform transform = Instantiate(template,container);
             RectTransform rectTransform = transform.GetComponent<RectTransform>();
@@ -31,7 +31,9 @@ public class HighScore : MonoBehaviour
             switch (rank)
             {
                 case 1: levelName = "PlayScene"; break;
-                case 2: levelName ="PlayScene1"; break;
+                case 2: levelName = "CatHighScore1"; break;
+                case 3: levelName = "PlayScene1"; break;
+                case 4: levelName = "CatHighScore2"; break;
             }
             int score = PlayerPrefs.GetInt(levelName);         
             transform.Find("ScoreText").GetComponent<Text>().text = score.ToString();

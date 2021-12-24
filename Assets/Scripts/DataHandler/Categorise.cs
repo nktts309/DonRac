@@ -74,8 +74,9 @@ public class Categorise : MonoBehaviour
             {
                 score--;
                 count++;
-                CorrectText();    
-                //GameManager.Instance.OnRecycleTrash(0);
+                CorrectText();
+                ScoreManager.Instance.Correct();
+                GameManager.Instance.RemoveRedTrash();
                 if (score > 0)
                 {
                     ScaleAnimate();
@@ -102,6 +103,7 @@ public class Categorise : MonoBehaviour
             }
             else
             {
+                ScoreManager.Instance.InCorrect();
                 count = 0;
                 InCorrectTrash(redTC);
                 InCorrectText();
@@ -114,7 +116,8 @@ public class Categorise : MonoBehaviour
                 score--;
                 count++;
                 CorrectText();
-                //GameManager.Instance.OnRecycleTrash(1);
+                ScoreManager.Instance.Correct();
+                GameManager.Instance.RemoveGreenTrash();
                 if (score > 0)
                 {
                     ScaleAnimate();
@@ -141,6 +144,7 @@ public class Categorise : MonoBehaviour
             }
             else
             {
+                ScoreManager.Instance.InCorrect();
                 count = 0;
                 InCorrectTrash(greenTC);
                 InCorrectText();              
@@ -153,7 +157,8 @@ public class Categorise : MonoBehaviour
                 score--;
                 count++;
                 CorrectText();
-                //GameManager.Instance.OnRecycleTrash(2);
+                GameManager.Instance.RemoveYellowTrash();
+                ScoreManager.Instance.Correct();
                 if (score > 0)
                 {
                     ScaleAnimate();
@@ -180,6 +185,7 @@ public class Categorise : MonoBehaviour
             }
             else
             {
+                ScoreManager.Instance.InCorrect();
                 count = 0;
                 InCorrectTrash(yellowTC);
                 InCorrectText();
