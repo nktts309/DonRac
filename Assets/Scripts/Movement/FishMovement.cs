@@ -73,9 +73,7 @@ public class FishMovement : MonoBehaviour
     }
     void FishJump()
     {
-        transform.localScale = new Vector3(1.5f, 1.5f);
-        if (transform.position.x < -3)
-        {
+        transform.localScale = new Vector3(1.5f, 1.5f);    
             tweenMove = transform.DOMoveX(startPos.x + 5f, 1.5f).SetEase(Ease.Linear).OnComplete(() =>
             {
                 tweenMove = transform.DOJump(jumpPos, jumpHeight, 1, 0.75f).SetEase(Ease.Linear).OnComplete(() =>
@@ -99,7 +97,6 @@ public class FishMovement : MonoBehaviour
                        });
 
                    });
-            });
-        }
+            });       
     }
 }

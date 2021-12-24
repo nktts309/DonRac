@@ -45,6 +45,10 @@ public class ScoreManager : MonoBehaviour
     public void InCorrect()
     {
         score -= 5;
+        if(score < 0)
+        {
+            score = 0;
+        }
         PlayerPrefs.SetInt("CatScore", score);
     }
     public void ResetScore()

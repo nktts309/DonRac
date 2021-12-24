@@ -19,6 +19,8 @@ public class TrashGrabbing : MonoBehaviour
         TrashCan = GameObject.Find("Red");
         TrashCan1 = GameObject.Find("Green");
         TrashCan2 = GameObject.Find("Yellow");
+        Debug.Log(PlayerPrefs.GetInt("CatHighScore1"));
+        Debug.Log(PlayerPrefs.GetInt("CatHighScore2"));
     }  
     void DestroyTrash()
     {

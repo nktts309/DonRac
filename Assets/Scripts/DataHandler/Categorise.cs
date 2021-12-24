@@ -204,8 +204,8 @@ public class Categorise : MonoBehaviour
     }
     void ScaleAnimate()
     {
-        transform.DOScale(1.0f, 0.2f).OnComplete(() => {
-            transform.DOScale(2.5f, 0.2f);
+        transform.DOScale(1.0f, 0.75f).OnComplete(() => {
+            transform.DOScale(2.5f, 0.5f);
         });
     }
     void BubbleSpawn()

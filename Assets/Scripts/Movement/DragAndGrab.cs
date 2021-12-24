@@ -11,11 +11,14 @@ public class DragAndGrab : MonoBehaviour
     private Vector3 startPos;
     private bool isTriggered = false;
     public static DragAndGrab Instance;
+    private SpriteRenderer sprite;
+    Tween tween;
     // Start is called before the first frame update
     void Start()
     {
         startPos = transform.position;
-        rig = GetComponent<Rigidbody2D>();      
+        rig = GetComponent<Rigidbody2D>();
+        sprite = GetComponent<SpriteRenderer>();
     }
     private void OnMouseDown()
     {
@@ -25,7 +28,9 @@ public class DragAndGrab : MonoBehaviour
     private void OnMouseUp()
     {       
             isTriggered = false;
-            rig.transform.DOMove(startPos, 1.0f);
+            tween = rig.transform.DOMove(startPos, 1.0f).OnComplete(()=> {
+                if (tween != null) tween.Kill();
+            });
     }
     void OnMouseDrag()
     {
@@ -34,7 +39,9 @@ public class DragAndGrab : MonoBehaviour
         transform.position = curPosition;
         if (isTriggered)
         {
-            rig.transform.position = startPos;
+            sprite.enabled = false;
+            transform.position = startPos;
+            Invoke("ShowSprite", 0.75f);
         }
 
     }
@@ -102,45 +109,8 @@ public class DragAndGrab : MonoBehaviour
             }
         }
     }
-
+    private void ShowSprite()
+    {
+        sprite.enabled = true;
+    }
 }
-    // Update is called once per frame
-    //void Update()
-    //{
-    //    if (Input.touchCount > 0)
-    //    {
-    //        // register the touch
-    //        UnityEngine.Touch touch = Input.GetTouch(0);
-    //        Vector3 pos = Camera.main.ScreenToWorldPoint(touch.position);
-    //        pos.z = 0f;
-    //        if (touch.phase == TouchPhase.Began)
-    //        {
-
-    //            //if you touch the circle
-    //            if (GetComponent<Collider2D>() == Physics2D.OverlapPoint(pos))
-    //            {
-    //                //get the offset between the touch's position and the circle's position
-    //                deltaX = pos.x - transform.position.x;
-    //                deltaY = pos.y - transform.position.y;
-    //                //set the bool isTouching to true
-    //                isTouching = true;
-    //            }
-    //        }
-    //        // if you're touching and moving the finger
-    //        if (isTouching && touch.phase == TouchPhase.Moved)
-    //        {
-    //            if (GetComponent<BoxCollider2D>() == Physics2D.OverlapPoint(pos))
-    //            {
-    //                // change the position of the circle to the position of the touch
-    //                rig.MovePosition(new Vector2(pos.x - deltaX, pos.y - deltaY));
-    //            }
-    //        }
-    //        // if you stop touching
-    //        if (isTouching && (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled))
-    //        {
-    //            //set isTouching to false
-    //            isTouching = false;
-    //            // return the removed properties of circle               
-    //        }
-    //    }
-    //}
