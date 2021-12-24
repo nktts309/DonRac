@@ -34,7 +34,6 @@ public class ChangeSprite : MonoBehaviour
             if (PlayerPrefs.GetInt("yellowTrash") == PlayerPrefs.GetInt("VoCo"))
             {
                 spriteRenderer.sprite = newSprite;
-                gameObject.transform.localScale = new Vector2(1,1);
             }
         }
     }

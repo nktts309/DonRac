@@ -16,7 +16,7 @@ public class ScoreManager : MonoBehaviour
             Instance = this;
         }
         DontDestroyOnLoad(this);
-        highScore1 = PlayerPrefs.GetInt("CatHighSCore1");
+        highScore1 = PlayerPrefs.GetInt("CatHighScore1");
         highScore2 = PlayerPrefs.GetInt("CatHighScore2");
     }
 

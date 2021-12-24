@@ -9,7 +9,7 @@ public class FishMovement : MonoBehaviour
     public Transform player;
     Tween tweenMove=null;
     int sceneIndex;
-    [SerializeField] private float jumpHeight = 2.5f;
+    [SerializeField] private float jumpHeight = 1f;
         
     // Start is called before the first frame update
     void Start()
@@ -36,7 +36,7 @@ public class FishMovement : MonoBehaviour
             transform.DOShakePosition(1f, 1.5f, 2, 9).OnComplete(() => {
                 transform.position = new Vector3(transform.position.x, startPos.y);
                 player.transform.DOShakePosition(0.5f, 1, 2, 10);
-                    AnimFish();
+                    FishJump();
             });
         }
         if (sceneIndex == 5)
@@ -63,10 +63,10 @@ public class FishMovement : MonoBehaviour
     void AnimateRabbit()
     {
         transform.localScale = new Vector3(1.5f, 1.5f);
-        tweenMove = transform.DOJump(endPos, jumpHeight,6,5).SetSpeedBased(true).SetEase(Ease.Linear).OnComplete(() => {
+        tweenMove = transform.DOJump(endPos, jumpHeight,5,3.5f).SetSpeedBased(true).SetEase(Ease.Linear).OnComplete(() => {
             if (tweenMove != null) tweenMove.Kill();
             transform.localScale = new Vector3(-1.5f, 1.5f);
-            tweenMove = transform.DOJump(startPos, jumpHeight,6,5).SetSpeedBased(true).SetEase(Ease.Linear).OnComplete(() => {
+            tweenMove = transform.DOJump(startPos, jumpHeight,5,3.5f).SetSpeedBased(true).SetEase(Ease.Linear).OnComplete(() => {
                 AnimateRabbit();
             });
         });
@@ -74,29 +74,32 @@ public class FishMovement : MonoBehaviour
     void FishJump()
     {
         transform.localScale = new Vector3(1.5f, 1.5f);
-        tweenMove = transform.DOMoveX(startPos.x + 5f, 1.5f).SetEase(Ease.Linear).OnComplete(() => {
+        if (transform.position.x < -3)
+        {
+            tweenMove = transform.DOMoveX(startPos.x + 5f, 1.5f).SetEase(Ease.Linear).OnComplete(() =>
             {
-                tweenMove = transform.DOJump(jumpPos,jumpHeight,1,0.75f).SetEase(Ease.Linear).OnComplete(() =>
-                {
-                    if (tweenMove != null) tweenMove.Kill();
-                    tweenMove = transform.DOMoveX(startPos.x + 15f, 1.5f).SetEase(Ease.Linear).OnComplete(() =>
-                    {
-                        transform.localScale = new Vector3(-1.5f, 1.5f);
-                        tweenMove = transform.DOMoveX(startPos.x + 10, 1.5f).SetEase(Ease.Linear).OnComplete(() => {
-                            tweenMove = transform.DOJump(jumpPos, jumpHeight, 1, 0.75f).SetEase(Ease.Linear).OnComplete(() =>
-                            {
-                                if (tweenMove != null) tweenMove.Kill();
-                                tweenMove = transform.DOMoveX(startPos.x, 1.5f).SetEase(Ease.Linear).OnComplete(() =>
-                                {
-                                    FishJump();
-                                });
-                            });
+                tweenMove = transform.DOJump(jumpPos, jumpHeight, 1, 0.75f).SetEase(Ease.Linear).OnComplete(() =>
+                   {
+                       if (tweenMove != null) tweenMove.Kill();
+                       tweenMove = transform.DOMoveX(startPos.x + 15f, 1.5f).SetEase(Ease.Linear).OnComplete(() =>
+                       {
+                           transform.localScale = new Vector3(-1.5f, 1.5f);
+                           tweenMove = transform.DOMoveX(startPos.x + 10, 1.5f).SetEase(Ease.Linear).OnComplete(() =>
+                           {
+                               tweenMove = transform.DOJump(jumpPos, jumpHeight, 1, 0.75f).SetEase(Ease.Linear).OnComplete(() =>
+                               {
+                                   if (tweenMove != null) tweenMove.Kill();
+                                   tweenMove = transform.DOMoveX(startPos.x, 1.5f).SetEase(Ease.Linear).OnComplete(() =>
+                                   {
+                                       FishJump();
+                                   });
+                               });
 
-                        });
-                    });
+                           });
+                       });
 
-                });
-            }                      
-        });        
+                   });
+            });
+        }
     }
 }
