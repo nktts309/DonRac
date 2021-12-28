@@ -616,6 +616,7 @@ MonoBehaviour:
   panel: {fileID: 382760666}
   highScoreText: {fileID: 436755029}
   scoreText: {fileID: 279423114}
+  particle: []
 --- !u!1 &357694351
 GameObject:
   m_ObjectHideFlags: 0
@@ -1793,7 +1794,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bubbleChat: {fileID: 709314004}
   incorrectChatText: {fileID: 1773583379}
-  id: 0
+  id: 2
+  confeti: {fileID: 0}
 --- !u!114 &1773583379 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8131566660602334693, guid: 609043d9942fe7f4090823d05eaf3df9, type: 3}
@@ -1824,7 +1826,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bubbleChat: {fileID: 709314004}
   incorrectChatText: {fileID: 1773583379}
-  id: 0
+  id: 1
+  confeti: {fileID: 0}
 --- !u!4 &1832450737 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4666662933539410741, guid: 62c8271aaf2010043a837aee2ab0e9bf, type: 3}
@@ -1850,6 +1853,7 @@ MonoBehaviour:
   bubbleChat: {fileID: 709314004}
   incorrectChatText: {fileID: 1773583379}
   id: 0
+  confeti: {fileID: 0}
 --- !u!1 &1968990300
 GameObject:
   m_ObjectHideFlags: 0

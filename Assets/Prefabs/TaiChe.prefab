@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5734475399442434079}
   - component: {fileID: 2403845844394074892}
   - component: {fileID: 4837655135469445303}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: TaiChe
   m_TagString: trash0
   m_Icon: {fileID: 0}

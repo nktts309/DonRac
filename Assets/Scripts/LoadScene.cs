@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using DG.Tweening;
 
 
 public class LoadScene : MonoBehaviour
@@ -10,6 +11,7 @@ public class LoadScene : MonoBehaviour
     public static LoadScene Instance;
     public GameObject QuitPanel;
     public GameObject ScorePanel;
+    public GameObject wardrobe;
     public void LoadNextScene(int index)
     {
         StartCoroutine(LoadLevel(index));       
@@ -62,5 +64,14 @@ public class LoadScene : MonoBehaviour
     public void HideScore()
     {
         ScorePanel.SetActive(false);
+    }
+    public void ShowWardrobe()
+    {
+        wardrobe.SetActive(true);
+    }
+    public void HideWardrobe()
+    {
+        LoadHomeScreen();
+        DOVirtual.DelayedCall(0.5f,() => wardrobe.SetActive(false));
     }
 }

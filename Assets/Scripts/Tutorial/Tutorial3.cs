@@ -16,7 +16,7 @@ public class Tutorial3 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        score = PlayerPrefs.GetInt("redTrash") + PlayerPrefs.GetInt("greenTrash") + PlayerPrefs.GetInt("yellowTrash");
+        score = GameManager.Instance.Score + GameManager.Instance.Score1 + GameManager.Instance.Score2;
         if (score == 6)
         {
             nextLevelPanel.transform.DOScale(1, 1) ;

@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bf7c34a0dc4e6348bea04faa70406ee, type: 3}
+  m_Name: SpriteLibraby
+  m_EditorClassIdentifier: 
+  m_Labels:
+  - m_Name: TrashSprite
+    m_Hash: 61956338
+    m_CategoryList:
+    - m_Name: HuuCo
+      m_Hash: -1507623281
+      m_Sprite: {fileID: 21300000, guid: a93f5455a3110c044b33274e0d15f790, type: 3}
+    - m_Name: VoCo
+      m_Hash: -1963957392
+      m_Sprite: {fileID: 21300000, guid: 056eec13df2df4b4dbe1e2b2037ebf76, type: 3}
+    - m_Name: TaiChe
+      m_Hash: 646007511
+      m_Sprite: {fileID: 21300000, guid: c3efc20b4ad523844ba66a0c78070d61, type: 3}

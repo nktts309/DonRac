@@ -7,13 +7,9 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMoveMent : MonoBehaviour
 {
-    int score, score1, score2;
-    float previousDisToTouch, currentDisToTouch;
-    bool isMoving = false;
-    Rigidbody2D rb;
-    Vector3 whereToMove, pos;
-    private Vector3 screenPoint;
-    Tween tween;
+    Vector3 pos;
+    Vector3 scale, revscale;
+    int index;
     //[SerializeField] public List<int> scoreList;
 
     public Text soRac, soRac1, soRac2;
@@ -21,7 +17,7 @@ public class PlayerMoveMent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        index = GameManager.Instance.IdSprite;
         if(SceneManager.GetActiveScene().buildIndex == 1)
         {
             Time.timeScale = 0;
@@ -29,6 +25,16 @@ public class PlayerMoveMent : MonoBehaviour
         else
         {
             Time.timeScale = 1;
+        }
+        if(index == 0)
+        {
+            scale = new Vector3(0.75f, 0.75f);
+            revscale = new Vector3(-0.75f, 0.75f);
+        }
+        if(index == 2|| index == 1)
+        {
+            scale = new Vector3(0.6f, 0.6f);
+            revscale = new Vector3(-0.6f, 0.6f);
         }
     }
 
@@ -46,11 +52,11 @@ public class PlayerMoveMent : MonoBehaviour
                 transform.DOMoveX(pos.x, 1.5f).SetEase(Ease.Linear);
                 if (pos.x < transform.position.x)
                 {
-                    transform.localScale = new Vector3(-0.75f, 0.75f);
+                    transform.localScale = revscale;
                 }
                 else
                 {
-                    transform.localScale = new Vector3(0.75f, 0.75f);
+                    transform.localScale = scale;
                 }
             }
         }       
@@ -59,17 +65,4 @@ public class PlayerMoveMent : MonoBehaviour
     {
         PlayerMove();
     }
-    //private void OnMouseDown()
-    //{
-    //    screenPoint = Camera.main.WorldToScreenPoint(gameObject.transform.position);
-    //    transform.DOMoveX(screenPoint.x,1.5f).SetEase(Ease.Linear);
-    //    if (screenPoint.x < transform.position.x)
-    //    {
-    //        transform.localScale = new Vector3(-0.75f, 0.75f);
-    //    }
-    //    else
-    //    {
-    //        transform.localScale = new Vector3(0.75f, 0.75f);
-    //    }
-    //}
 }

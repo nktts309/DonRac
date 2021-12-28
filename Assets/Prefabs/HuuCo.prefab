@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 5422640658655849198}
   - component: {fileID: 3045382602168993333}
   - component: {fileID: 3226120703298319875}
-  m_Layer: 0
+  - component: {fileID: -7860050641236782118}
+  m_Layer: 7
   m_Name: HuuCo
   m_TagString: trash1
   m_Icon: {fileID: 0}
@@ -105,7 +106,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8865487720422181333}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -124,3 +125,45 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.8153079, y: 0.71}
   m_EdgeRadius: 0
+--- !u!60 &-7860050641236782118
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8865487720422181333}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.84, y: 0.71}
+    newSize: {x: 0.84, y: 0.71}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.34, y: 0.145}
+      - {x: 0.26, y: 0.315}
+      - {x: 0.17999999, y: 0.355}
+      - {x: -0.14999999, y: 0.355}
+      - {x: -0.24, y: 0.33499998}
+      - {x: -0.38, y: 0.285}
+      - {x: -0.42, y: 0.16499999}
+      - {x: -0.42, y: 0.055}
+      - {x: -0.37, y: -0.105}
+      - {x: -0.32, y: -0.175}
+      - {x: -0.19999999, y: -0.295}
+      - {x: -0.12, y: -0.345}
+      - {x: -0.099999994, y: -0.355}
+      - {x: 0.099999994, y: -0.355}
+      - {x: 0.42, y: -0.105}
+      - {x: 0.42, y: 0.095}
+      - {x: 0.39, y: 0.074999996}

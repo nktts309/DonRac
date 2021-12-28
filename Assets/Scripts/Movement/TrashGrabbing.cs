@@ -6,7 +6,7 @@ using DG.Tweening;
 using UnityEngine.SceneManagement;
 public class TrashGrabbing : MonoBehaviour
 {
-    bool  isRed = false, isGreen = false, isYellow = false;
+    bool  isRed = false, isGreen = false;
     GameObject TrashCan, TrashCan1, TrashCan2;
     [SerializeField] private int idTrash;
     public List<Transform> id;
@@ -19,8 +19,6 @@ public class TrashGrabbing : MonoBehaviour
         TrashCan = GameObject.Find("Red");
         TrashCan1 = GameObject.Find("Green");
         TrashCan2 = GameObject.Find("Yellow");
-        Debug.Log(PlayerPrefs.GetInt("CatHighScore1"));
-        Debug.Log(PlayerPrefs.GetInt("CatHighScore2"));
     }  
     void DestroyTrash()
     {
@@ -28,7 +26,6 @@ public class TrashGrabbing : MonoBehaviour
     }
     public void OnMouseDown()
     {
-        //GameManager.Instance.OnCollectTrash(this);
         if (gameObject.CompareTag("trash0"))
         {
             GameManager.Instance.Addredtrash();
@@ -45,7 +42,6 @@ public class TrashGrabbing : MonoBehaviour
         {
             GameManager.Instance.Addyellowtrash();
             GameManager.Instance.AddScore();
-            isYellow = true;
         }
         else if(gameObject.name == "HuuCo(Clone)")
         {
@@ -59,7 +55,6 @@ public class TrashGrabbing : MonoBehaviour
             GameManager.Instance.AddInOrganic();
             GameManager.Instance.Addyellowtrash();
             GameManager.Instance.AddScore();
-            isYellow = true;
         }
         else if (gameObject.name == "TaiChe(Clone)")
         {
@@ -70,7 +65,7 @@ public class TrashGrabbing : MonoBehaviour
         }
         else
         {
-            isRed = false; isGreen = false; isYellow = false;
+            isRed = false; isGreen = false;
         }
         Cautch();
     }

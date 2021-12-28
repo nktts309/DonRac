@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class CamFocus : MonoBehaviour
 {
-    private int touchCount = 0;
     public GameObject focus;
     [SerializeField] private int id;
     [SerializeField ]private SpriteRenderer[] sprites;

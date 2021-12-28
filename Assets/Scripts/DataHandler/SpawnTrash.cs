@@ -72,6 +72,7 @@ public class SpawnTrash : MonoBehaviour
     void LoadLevel()
     {
         GameManager.Instance.LoadNextScene();
+        ScoreManager.Instance.ResetScore();
     }
 }
 

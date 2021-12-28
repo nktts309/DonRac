@@ -6,6 +6,7 @@ using DG.Tweening;
 public class DragAndGrab : MonoBehaviour
 {
     private Rigidbody2D rig;
+    private PolygonCollider2D collider2D;
     private Vector3 screenPoint;
     private Vector3 offset;
     private Vector3 startPos;
@@ -16,6 +17,7 @@ public class DragAndGrab : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        collider2D = GetComponent<PolygonCollider2D>();
         startPos = transform.position;
         rig = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
@@ -27,10 +29,12 @@ public class DragAndGrab : MonoBehaviour
     }
     private void OnMouseUp()
     {       
-            isTriggered = false;
-            tween = rig.transform.DOMove(startPos, 1.0f).OnComplete(()=> {
-                if (tween != null) tween.Kill();
-            });
+        isTriggered = false;
+        collider2D.enabled = false;
+        tween = rig.transform.DOMove(startPos, 1.0f).OnComplete(()=> {
+            if (tween != null) tween.Kill();
+            collider2D.enabled = true;
+        });
     }
     void OnMouseDrag()
     {
@@ -49,12 +53,7 @@ public class DragAndGrab : MonoBehaviour
     {
         if (rig.CompareTag("trash0"))
         {
-             if (collision.CompareTag("trash2") || collision.CompareTag("trash1"))
-            {
-
-            }
-            else 
-            {               
+                           
                 if (!collision.CompareTag("RTC"))
                 {
 
@@ -65,17 +64,10 @@ public class DragAndGrab : MonoBehaviour
                 {
                     isTriggered = true;
                     transform.position = startPos;
-                }                             
-            }
+                }                                       
         }
         if (rig.CompareTag("trash1"))
-        {
-            if (collision.CompareTag("trash2") || collision.CompareTag("trash0"))
-            {
-
-            }
-            else
-            {
+        {           
                 if (collision.CompareTag("GTC"))
                 {
                     isTriggered = true;
@@ -85,17 +77,10 @@ public class DragAndGrab : MonoBehaviour
                 {
                     isTriggered = false;
                     rig.transform.DOMove(startPos, 1.0f);
-                }
-            }
+                }           
         }
         if (rig.CompareTag("trash2"))
-        {
-            if (collision.CompareTag("trash0") || collision.CompareTag("trash1"))
-            {
-
-            }
-            else
-            {
+        {           
                 if (collision.CompareTag("YTC"))
                 {
                     isTriggered = true;
@@ -106,8 +91,7 @@ public class DragAndGrab : MonoBehaviour
                     isTriggered = false;
                     rig.transform.DOMove(startPos, 1.0f);
                 }
-            }
-        }
+            }      
     }
     private void ShowSprite()
     {

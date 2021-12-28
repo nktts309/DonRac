@@ -17,21 +17,21 @@ public class ChangeSprite : MonoBehaviour
     {
         if (gameObject.CompareTag("trash0"))
         {
-            if (PlayerPrefs.GetInt("redTrash") == PlayerPrefs.GetInt("TaiChe"))
+            if (GameManager.Instance.Score == PlayerPrefs.GetInt("TaiChe"))
             {
                 spriteRenderer.sprite = newSprite;
             }
         }
         if (gameObject.CompareTag("trash1"))
         {
-            if (PlayerPrefs.GetInt("greenTrash") == PlayerPrefs.GetInt("HuuCo"))
+            if (GameManager.Instance.Score1 == PlayerPrefs.GetInt("HuuCo"))
             {
                 spriteRenderer.sprite = newSprite;
             }
         }
         if (gameObject.CompareTag("trash2"))
         {
-            if (PlayerPrefs.GetInt("yellowTrash") == PlayerPrefs.GetInt("VoCo"))
+            if (GameManager.Instance.Score2 == PlayerPrefs.GetInt("VoCo"))
             {
                 spriteRenderer.sprite = newSprite;
             }

@@ -10,10 +10,11 @@ public class End : MonoBehaviour
     public GameObject panel;
     int highScore, score;
     public Text highScoreText, scoreText;
+    public ParticleSystem[] particle;
     // Start is called before the first frame update
     void Start()
-    {   
-        
+    {
+        panel.SetActive(false);
     }
 
     // Update is called once per frame
@@ -34,9 +35,14 @@ public class End : MonoBehaviour
         GameObject[] go2 = GameObject.FindGameObjectsWithTag("trash2");
         if (go.Length == 0 && go1.Length == 0 && go2.Length == 0)
         {
+            panel.SetActive(true);
             panel.transform.DOScale(0.7f, 0.5f);
             scoreText.text = "Score " + score.ToString();
-            highScoreText.text = "HighScore " + highScore.ToString();
+            highScoreText.text = "HighScore " + highScore.ToString();          
         }
+    }
+    void PlayParticle()
+    {
+        particle[1].DOPlay();
     }
 }
