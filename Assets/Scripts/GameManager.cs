@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
     //Get score and highscore
     private int scoreCollect;
     private int highScore;
-    private int highScore1;
+    private int highScore1, highScore2;
 
     public int Score { get => score; set => score = value; }
     public int Score1 { get => score1; set => score1 = value; }
@@ -54,6 +54,7 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(this);
         highScore = PlayerPrefs.GetInt("PlayScene");
         highScore1 = PlayerPrefs.GetInt("PlayScene1");
+        highScore2 = PlayerPrefs.GetInt("PlayScene2");
         tempCount = 1;
         idSprite = PlayerPrefs.GetInt("SpriteID");
     }
@@ -200,6 +201,14 @@ public class GameManager : MonoBehaviour
             {
                 highScore1 = scoreCollect;
                 PlayerPrefs.SetInt("PlayScene1", highScore1);
+            }         
+        }
+        if (SceneManager.GetActiveScene().buildIndex == 5)
+        {
+            if (scoreCollect > highScore2)
+            {
+                highScore2 = scoreCollect;
+                PlayerPrefs.SetInt("PlayScene2", highScore2);
             }         
         }
     }

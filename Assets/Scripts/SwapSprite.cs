@@ -13,8 +13,7 @@ public class SwapSprite : MonoBehaviour
     private CharacterData charData;
    // private SpriteLibraryAsset LibraryAsset => library.spriteLibraryAsset;
     private void Start()
-    {
-        spriteRenderer = GetComponent<SpriteRenderer>();
+    {        
         charData = ResourceData.Instance.CharacterData;
         player = GetComponent<Transform>();
         //library = GetComponent<SpriteLibrary>();

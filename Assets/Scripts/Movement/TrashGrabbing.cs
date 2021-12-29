@@ -46,22 +46,22 @@ public class TrashGrabbing : MonoBehaviour
         else if(gameObject.name == "HuuCo(Clone)")
         {
             GameManager.Instance.AddOrganic();
-            GameManager.Instance.Addgreentrash();
-            GameManager.Instance.AddScore();
-            isGreen = true;
+            //GameManager.Instance.Addgreentrash();
+            //GameManager.Instance.AddScore();
+            //isGreen = true;
         }
         else if (gameObject.name == "VoCo(Clone)")
         {
             GameManager.Instance.AddInOrganic();
-            GameManager.Instance.Addyellowtrash();
-            GameManager.Instance.AddScore();
+            //GameManager.Instance.Addyellowtrash();
+            //GameManager.Instance.AddScore();
         }
         else if (gameObject.name == "TaiChe(Clone)")
         {
             GameManager.Instance.AddRecycle();
-            GameManager.Instance.Addredtrash();
-            GameManager.Instance.AddScore();
-            isRed = true;
+            //GameManager.Instance.Addredtrash();
+            //GameManager.Instance.AddScore();
+            //isRed = true;
         }
         else
         {

@@ -9,7 +9,7 @@ public class WardrobeScript : MonoBehaviour
 {
     [SerializeField] private int idSprite;
     [SerializeField] private GameObject effect;
-    bool isChoosing = false;
+    //bool isChoosing = false;
     private Outlinable outline;
     private SpriteRenderer sprite;
     private CharacterData charData;
@@ -41,7 +41,6 @@ public class WardrobeScript : MonoBehaviour
         GameManager.Instance.SwapSprite(idSprite);
         effect.SetActive(true);
         DOVirtual.DelayedCall(0.75f, () => effect.SetActive(false));
-        SwapSprite swap = new SwapSprite();
     }
     // Update is called once per frame
     void LockedSprite()

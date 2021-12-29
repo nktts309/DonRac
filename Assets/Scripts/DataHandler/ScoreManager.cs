@@ -7,7 +7,7 @@ public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager Instance;
     int score = 0;
-    int highScore1, highScore2;
+    int highScore1, highScore2, highScore3;
     // Start is called before the first frame update
     void Awake()
     {
@@ -18,6 +18,7 @@ public class ScoreManager : MonoBehaviour
         DontDestroyOnLoad(this);
         highScore1 = PlayerPrefs.GetInt("CatHighScore1");
         highScore2 = PlayerPrefs.GetInt("CatHighScore2");
+        highScore3 = PlayerPrefs.GetInt("CatHighScore3");
     }
 
     // Update is called once per frame
@@ -39,6 +40,14 @@ public class ScoreManager : MonoBehaviour
             {
                 highScore2 = score;
                 PlayerPrefs.SetInt("CatHighScore2", highScore2);
+            }
+        } 
+        if (SceneManager.GetActiveScene().buildIndex == 8)
+        {
+            if (score > highScore3)
+            {
+                highScore3 = score;
+                PlayerPrefs.SetInt("CatHighScore3", highScore3);
             }
         }
     }

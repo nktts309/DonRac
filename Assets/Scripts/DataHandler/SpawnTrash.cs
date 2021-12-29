@@ -46,7 +46,7 @@ public class SpawnTrash : MonoBehaviour
         GameObject newTrash = (GameObject)Instantiate(prefab[index]);
         currentList.Add(newTrash);
        
-        newTrash.transform.position = new Vector2(Random.Range(-8, 8), Random.Range(-3, -4.5f));
+        newTrash.transform.position = new Vector2(Random.Range(-8, 8), Random.Range(-3, -4f));
     }
     public void GenerateTrash(GameObject trash)
     {
