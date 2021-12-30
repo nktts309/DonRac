@@ -14,8 +14,6 @@ public class WardrobeScript : MonoBehaviour
     private SpriteRenderer sprite;
     private CharacterData charData;
     private BoxCollider2D collider2D;
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +21,7 @@ public class WardrobeScript : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
         collider2D = GetComponent<BoxCollider2D>();
         charData = ResourceData.Instance.CharacterData;
-        LockedSprite();
+        LockedSprite();       
     }
     private void Update()
     {
@@ -34,20 +32,17 @@ public class WardrobeScript : MonoBehaviour
         else
         {
             outline.enabled = true;
-        }       
+        }
     }
     private void OnMouseDown()
     {
         GameManager.Instance.SwapSprite(idSprite);
         effect.SetActive(true);
-        DOVirtual.DelayedCall(0.75f, () => effect.SetActive(false));
+        DOVirtual.DelayedCall(0.75f, () => effect.SetActive(false));  
     }
     // Update is called once per frame
     void LockedSprite()
-    {
-        //Debug.Log(PlayerData.OwnedChar(idSprite) + " Unlock char 0");
-        //Debug.Log(PlayerData.OwnedChar(idSprite) + " Unlock char 1");
-        //PlayerData.UnlockChar(1);                 
+    {                
         if (PlayerPrefs.GetInt("PlayScene") + PlayerPrefs.GetInt("CatHighScore1") >= 420)
         {
             PlayerData.UnlockChar(1);

@@ -11,13 +11,10 @@ public class SwapSprite : MonoBehaviour
     private Transform player;
     private int index;
     private CharacterData charData;
-   // private SpriteLibraryAsset LibraryAsset => library.spriteLibraryAsset;
     private void Start()
     {        
         charData = ResourceData.Instance.CharacterData;
         player = GetComponent<Transform>();
-        //library = GetComponent<SpriteLibrary>();
-        //resolver = GetComponent<SpriteResolver>();
         index = GameManager.Instance.IdSprite;
         if(index == 1 || index == 2)
         {
@@ -25,7 +22,6 @@ public class SwapSprite : MonoBehaviour
         }
         ChangeSprite();
     }
-    // Start is called before the first frame update
    void ChangeSprite()
     {
         var spriteChar = charData.Datas[index].sprites;

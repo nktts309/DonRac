@@ -12,7 +12,7 @@ public class PlayerMoveMent : MonoBehaviour
     int index;
     //[SerializeField] public List<int> scoreList;
 
-    public Text soRac, soRac1, soRac2;
+    //public Text soRac, soRac1, soRac2;
     public float speed = 2.0f;
     // Start is called before the first frame update
     void Start()

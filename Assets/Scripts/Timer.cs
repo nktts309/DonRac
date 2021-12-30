@@ -14,11 +14,13 @@ public class Timer : MonoBehaviour
     public GameObject nextLevelPanel;
     public Text scoreText;
     public Text highScoreText;
+    public Text levelText;
     int highScore;
     private void Start()
     {
         timerIsRunning = true;
         highScore = PlayerPrefs.GetInt(SceneManager.GetActiveScene().name);
+        levelText.text = "Level " + (SceneManager.GetActiveScene().buildIndex - 2);
     }
 
     void Update()
