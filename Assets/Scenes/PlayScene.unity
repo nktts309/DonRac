@@ -2147,7 +2147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 122e110c6d0f8be449e7301ea2ba913f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeRemaining: 20
+  timeRemaining: 25
   timeText: {fileID: 1517090207}
   nextLevelPanel: {fileID: 1297021685}
   scoreText: {fileID: 1835573056}

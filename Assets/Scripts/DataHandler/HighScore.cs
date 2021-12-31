@@ -10,7 +10,6 @@ public class HighScore : MonoBehaviour
     private Transform container;
     private GameObject board;
     private float spacing;
-    // Start is called before the first frame update
     void Awake()
     {
         board = GameObject.Find("HighScore");

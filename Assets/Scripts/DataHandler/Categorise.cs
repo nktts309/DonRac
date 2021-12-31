@@ -75,7 +75,6 @@ public class Categorise : MonoBehaviour
             idTrash = 2;
         }
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -166,7 +165,6 @@ public class Categorise : MonoBehaviour
         bubbleChat.transform.position = new Vector3(TC.transform.position.x- 1.65f, TC.transform.position.y + 1.5f) ;
     }
 }
-
 // if (rig.CompareTag("trash0"))
 //{
 //    if (collision.tag == "RTC")

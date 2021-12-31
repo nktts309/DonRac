@@ -31,8 +31,6 @@ public class GameManager : MonoBehaviour
     public int Score2 { get => score2; set => score2 = value; }
     public int IdSprite { get => idSprite; set => idSprite = value; }
     public bool IsChoosing { get => isChoosing; set => isChoosing = value; }
-
-
     // Swap sprite
     int idSprite;
     bool isChoosing;
