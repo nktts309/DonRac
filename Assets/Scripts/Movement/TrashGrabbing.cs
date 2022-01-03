@@ -46,15 +46,15 @@ public class TrashGrabbing : MonoBehaviour
                 GameManager.Instance.Addyellowtrash();
                 GameManager.Instance.AddScore();
             }
-            else if (gameObject.name == "HuuCo(Clone)")
+            if (gameObject.name == "HuuCo(Clone)")
             {
                 GameManager.Instance.AddOrganic();
             }
-            else if (gameObject.name == "VoCo(Clone)")
+            if (gameObject.name == "VoCo(Clone)")
             {
                 GameManager.Instance.AddInOrganic();
             }
-            else if (gameObject.name == "TaiChe(Clone)")
+            if (gameObject.name == "TaiChe(Clone)")
             {
                 GameManager.Instance.AddRecycle();
             }

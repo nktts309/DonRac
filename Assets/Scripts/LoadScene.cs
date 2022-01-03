@@ -12,6 +12,7 @@ public class LoadScene : MonoBehaviour
     public GameObject QuitPanel;
     public GameObject ScorePanel;
     public GameObject wardrobe;
+    Tween tween;
     public void LoadNextScene(int index)
     {
         StartCoroutine(LoadLevel(index));       
@@ -71,7 +72,11 @@ public class LoadScene : MonoBehaviour
     }
     public void HideWardrobe()
     {
+        tween = DOVirtual.DelayedCall(0.5f,() => wardrobe.SetActive(false));
+        if(tween!= null)
+        {
+            tween.Kill();
+        }
         LoadHomeScreen();
-        DOVirtual.DelayedCall(0.5f,() => wardrobe.SetActive(false));
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
 using System;
+using SCN;
 
 public class Categorise : MonoBehaviour
 {
@@ -14,7 +15,6 @@ public class Categorise : MonoBehaviour
     GameObject redTC, greenTC, yellowTC;
     GameObject[] go, go1, go2;
     Tween tweenMove = null;
-    private GameObject lastBinNeeded = null;
     private int idTrash = -1;
 
     public Text number;
@@ -128,7 +128,7 @@ public class Categorise : MonoBehaviour
         {
             Debug.Log("Mở khóa pando");
         }
-        if (PlayerPrefs.GetInt("PlayScene1") + PlayerPrefs.GetInt("CatHighScore2") == 600)
+        if (PlayerPrefs.GetInt("PlayScene1") + PlayerPrefs.GetInt("CatHighScore2") == 690)
         {
             Debug.Log("Mở khóa croc");
         }
@@ -151,6 +151,7 @@ public class Categorise : MonoBehaviour
     }
     void BubbleSpawn()
     {
+        if (tweenMove != null) tweenMove.Kill();
         tweenMove = bubble.transform.DOScale(54.0f, 0.5f).OnComplete(() => {
             tweenMove =bubble.transform.DOScale(0, 1.0f).SetDelay(1.0f);         
         });      
@@ -158,11 +159,28 @@ public class Categorise : MonoBehaviour
     }
     public void InCorrectTrash(GameObject TC)
     {
-         tweenMove = bubbleChat.transform.DOScale(58f, 0.5f).OnComplete(() => {
+        if (tweenMove != null) tweenMove.Kill();
+        tweenMove = bubbleChat.transform.DOScale(58f, 0.5f).OnComplete(() => {
             tweenMove =bubbleChat.transform.DOScale(0, 1).SetDelay(1.0f);
         });
         incorrectChatText.text = "I want that";
         bubbleChat.transform.position = new Vector3(TC.transform.position.x- 1.65f, TC.transform.position.y + 1.5f) ;
+    }
+    public void AddScoreToText(EventKey.OnCategorise point)
+    {
+        if (rig.CompareTag("trash0"))
+        {
+            score = point.redTrash;
+        }
+        else if (rig.CompareTag("trash1"))
+        {
+            score = point.greenTrash;
+        }
+        else
+        {
+            score = point.yellowTrash;
+        }
+        score++;
     }
 }
 // if (rig.CompareTag("trash0"))

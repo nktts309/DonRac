@@ -13,13 +13,11 @@ public class RecycleBin : MonoBehaviour
     [SerializeField] private GameObject confeti;
     private Outlinable outlineTC;
 
-    private SpriteRenderer spriteColor;
     private bool isNeeded = false;
     public int Id { get => id; set => id = value; }
     public bool IsNeeded { get => isNeeded; set => isNeeded = value; }
     private void Start()
     {
-        spriteColor = GetComponent<SpriteRenderer>();
         outlineTC = GetComponent<Outlinable>();
         outlineTC.enabled = false;
         bubbleChat.transform.position = new Vector3(gameObject.transform.position.x - 2f, gameObject.transform.position.y+ 1f);
@@ -44,9 +42,5 @@ public class RecycleBin : MonoBehaviour
     {
         confeti.SetActive(true);
         DOVirtual.DelayedCall(0.5f, () => confeti.SetActive(false));
-    }
-    void StopFirework()
-    {
-        confeti.SetActive(false);
     }
 }

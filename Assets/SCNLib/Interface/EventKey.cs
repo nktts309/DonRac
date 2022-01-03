@@ -11,4 +11,10 @@ public class EventKey : IEventParams
         public Vector3 posMove;
         public Action action;
     }
+    public struct OnCategorise : IEventParams
+    {
+        public int redTrash;
+        public int greenTrash;
+        public int yellowTrash;
+    }
 }

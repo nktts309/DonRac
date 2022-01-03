@@ -12,7 +12,6 @@ public class WardrobeScript : MonoBehaviour
     //bool isChoosing = false;
     private Outlinable outline;
     private SpriteRenderer sprite;
-    private CharacterData charData;
     private BoxCollider2D collider2D;
     // Start is called before the first frame update
     void Start()
@@ -20,7 +19,6 @@ public class WardrobeScript : MonoBehaviour
         outline = GetComponent<Outlinable>();
         sprite = GetComponent<SpriteRenderer>();
         collider2D = GetComponent<BoxCollider2D>();
-        charData = ResourceData.Instance.CharacterData;
         LockedSprite();       
     }
     private void Update()
@@ -47,7 +45,7 @@ public class WardrobeScript : MonoBehaviour
         {
             PlayerData.UnlockChar(1);
         }
-        if (PlayerPrefs.GetInt("PlayScene1") + PlayerPrefs.GetInt("CatHighScore2") >= 600 )
+        if (PlayerPrefs.GetInt("PlayScene1") + PlayerPrefs.GetInt("CatHighScore2") >= 690 )
         {
             PlayerData.UnlockChar(2);            
         }
@@ -62,5 +60,4 @@ public class WardrobeScript : MonoBehaviour
             collider2D.enabled = false;
         }       
     }
-
 }

@@ -16,7 +16,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] Text redText;
     [SerializeField] Text yellowText;
     //Categorise trash
-    [SerializeField] private List<RecycleBin> recycleBins = new List<RecycleBin>();
     private int lastBinId = -1;
     private int tempCount = 0;
     //Get Scene
@@ -151,7 +150,7 @@ public class GameManager : MonoBehaviour
                 PlayerPrefs.SetInt("PlayScene1", highScore1);
             }         
         }
-        if (SceneManager.GetActiveScene().buildIndex == 5)
+        if (SceneManager.GetActiveScene().buildIndex == 7)
         {
             if (scoreCollect > highScore2)
             {
