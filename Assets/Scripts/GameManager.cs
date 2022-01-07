@@ -5,6 +5,7 @@ using DG.Tweening;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System;
+using SCN;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
@@ -77,19 +78,16 @@ public class GameManager : MonoBehaviour
     {
         huuCo++;
         PlayerPrefs.SetInt("HuuCo", huuCo);
-        Debug.Log("HuuCo" + huuCo);
     }
     public void AddInOrganic()
     {
         voCo++;
         PlayerPrefs.SetInt("VoCo", voCo);
-        Debug.Log("VoCo" + voCo);
     }
     public void AddRecycle()
     {
         taiChe++;
         PlayerPrefs.SetInt("TaiChe", taiChe);
-        Debug.Log("TaiChe" + taiChe);
     }
     public void LoadNextScene()
     {

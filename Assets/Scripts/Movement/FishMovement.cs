@@ -9,7 +9,6 @@ public class FishMovement : MonoBehaviour
     Vector3 scale, revScale;
     public Transform player;
     Tween tweenMove=null;
-    int sceneIndex;
     [SerializeField] private float jumpHeight = 1f;
     public int id;
         
@@ -116,10 +115,10 @@ public class FishMovement : MonoBehaviour
     private void AnimFish()
     {
         transform.localScale = scale;
-        tweenMove = transform.DOMoveX(startPos.x + 15f, 5f).SetSpeedBased(true).SetEase(Ease.Linear).OnComplete(()=> {
+        tweenMove = transform.DOMoveX(startPos.x + 15f, 5.5f).SetSpeedBased(true).SetEase(Ease.Linear).OnComplete(()=> {
         if (tweenMove != null) tweenMove.Kill();
             transform.localScale = revScale;
-            tweenMove = transform.DOMoveX(startPos.x, 5f).SetSpeedBased(true).SetEase(Ease.Linear).OnComplete(() => {
+            tweenMove = transform.DOMoveX(startPos.x, 5.5f).SetSpeedBased(true).SetEase(Ease.Linear).OnComplete(() => {
                 AnimFish();
             });
         });
@@ -139,20 +138,20 @@ public class FishMovement : MonoBehaviour
     {
         transform.localScale = scale;
         if (tweenMove != null) tweenMove.Kill();
-        tweenMove = transform.DOMoveX(startPos.x + 5f, 4.5f).SetEase(Ease.Linear).SetSpeedBased(true).OnComplete(() =>
+        tweenMove = transform.DOMoveX(startPos.x + 5f, 5.5f).SetEase(Ease.Linear).SetSpeedBased(true).OnComplete(() =>
             {
                 tweenMove = transform.DOJump(jumpPos, jumpHeight, 1, 0.75f).SetEase(Ease.Linear).OnComplete(() =>
                    {
                        if (tweenMove != null) tweenMove.Kill();
-                       tweenMove = transform.DOMoveX(startPos.x + 15f, 4.5f).SetEase(Ease.Linear).SetSpeedBased(true).OnComplete(() =>
+                       tweenMove = transform.DOMoveX(startPos.x + 15f, 5.5f).SetEase(Ease.Linear).SetSpeedBased(true).OnComplete(() =>
                        {
                            transform.localScale = revScale;
-                           tweenMove = transform.DOMoveX(startPos.x + 10, 1.5f).SetEase(Ease.Linear).OnComplete(() =>
+                           tweenMove = transform.DOMoveX(startPos.x + 10, 5.5f).SetEase(Ease.Linear).SetSpeedBased(true).OnComplete(() =>
                            {
                                tweenMove = transform.DOJump(jumpPos, jumpHeight, 1, 0.75f).SetEase(Ease.Linear).OnComplete(() =>
                                {
                                    if (tweenMove != null) tweenMove.Kill();
-                                   tweenMove = transform.DOMoveX(startPos.x, 4.5f).SetEase(Ease.Linear).SetSpeedBased(true).OnComplete(() =>
+                                   tweenMove = transform.DOMoveX(startPos.x, 5.5f).SetEase(Ease.Linear).SetSpeedBased(true).OnComplete(() =>
                                    {
                                        FishJump();
                                    });

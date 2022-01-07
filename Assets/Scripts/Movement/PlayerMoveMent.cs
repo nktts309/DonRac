@@ -66,27 +66,4 @@ public class PlayerMoveMent : MonoBehaviour
             CheckAndAction();
         });
     }
-    //private void PlayerMove()
-    //{       
-    //    if (Input.touchCount > 0)
-    //    {
-    //        Touch touch = Input.GetTouch(0);
-    //        if (touch.phase == TouchPhase.Began)
-    //        {
-    //            pos = Camera.main.ScreenToWorldPoint(touch.position);
-    //            pos.z = 0;
-    //            transform.DOMoveX(pos.x, 1.5f).SetEase(Ease.Linear).OnComplete(()=> {
-
-    //            });
-    //            if (pos.x < transform.position.x)
-    //            {
-    //                transform.localScale = revscale;
-    //            }
-    //            else
-    //            {
-    //                transform.localScale = scale;
-    //            }
-    //        }
-    //    }       
-    //}
 }

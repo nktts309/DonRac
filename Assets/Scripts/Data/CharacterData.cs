@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,12 +6,10 @@ using UnityEngine;
 public class CharacterData : ScriptableObject
 {
     public List<Data> Datas;
-    [System.Serializable] public struct Data
+    [Serializable] public struct Data
     {
         public string name;
         public Sprite sprites;
         public int cost;
     }
-
-
 }

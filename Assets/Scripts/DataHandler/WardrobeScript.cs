@@ -19,10 +19,7 @@ public class WardrobeScript : MonoBehaviour
         outline = GetComponent<Outlinable>();
         sprite = GetComponent<SpriteRenderer>();
         collider2D = GetComponent<BoxCollider2D>();
-        LockedSprite();       
-    }
-    private void Update()
-    {
+        LockedSprite();
         if (idSprite != GameManager.Instance.IdSprite)
         {
             outline.enabled = false;
@@ -32,11 +29,25 @@ public class WardrobeScript : MonoBehaviour
             outline.enabled = true;
         }
     }
+    private void Update()
+    {
+        if(Time.frameCount % 30 == 0)
+        {
+            if (idSprite != GameManager.Instance.IdSprite)
+            {
+                outline.enabled = false;
+            }
+            else
+            {
+                outline.enabled = true;
+            }
+        }
+    }
     private void OnMouseDown()
     {
         GameManager.Instance.SwapSprite(idSprite);
         effect.SetActive(true);
-        DOVirtual.DelayedCall(0.75f, () => effect.SetActive(false));  
+        DOVirtual.DelayedCall(0.5f, () => effect.SetActive(false));
     }
     // Update is called once per frame
     void LockedSprite()

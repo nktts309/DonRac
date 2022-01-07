@@ -6,7 +6,7 @@ using DG.Tweening;
 public class DragAndGrab : MonoBehaviour
 {
     private Rigidbody2D rig;
-    private PolygonCollider2D collider2D;
+    private PolygonCollider2D colliderer;
     private Vector3 screenPoint;
     private Vector3 offset;
     private Vector3 startPos;
@@ -17,7 +17,7 @@ public class DragAndGrab : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        collider2D = GetComponent<PolygonCollider2D>();
+        colliderer = GetComponent<PolygonCollider2D>();
         startPos = transform.position;
         rig = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
@@ -30,10 +30,10 @@ public class DragAndGrab : MonoBehaviour
     private void OnMouseUp()
     {       
         isTriggered = false;
-        collider2D.enabled = false;
+        colliderer.enabled = false;
         tween = rig.transform.DOMove(startPos, 1.0f).OnComplete(()=> {
             if (tween != null) tween.Kill();
-            collider2D.enabled = true;
+            colliderer.enabled = true;
         });
     }
     void OnMouseDrag()
@@ -45,9 +45,8 @@ public class DragAndGrab : MonoBehaviour
         {
             sprite.enabled = false;
             transform.position = startPos;
-            Invoke("ShowSprite", 0.75f);
+            DOVirtual.DelayedCall(0.75f, () => sprite.enabled = true);
         }
-
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -56,7 +55,6 @@ public class DragAndGrab : MonoBehaviour
                            
                 if (!collision.CompareTag("RTC"))
                 {
-
                     isTriggered = false;
                     rig.transform.DOMove(startPos, 1.0f);
                 }
@@ -76,6 +74,7 @@ public class DragAndGrab : MonoBehaviour
                 else
                 {
                     isTriggered = false;
+                    colliderer.enabled = false;
                     rig.transform.DOMove(startPos, 1.0f);
                 }           
         }
@@ -92,9 +91,5 @@ public class DragAndGrab : MonoBehaviour
                     rig.transform.DOMove(startPos, 1.0f);
                 }
             }      
-    }
-    private void ShowSprite()
-    {
-        sprite.enabled = true;
     }
 }

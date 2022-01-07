@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class CamFocus : MonoBehaviour
 {
     public GameObject focus;
-    [SerializeField] private int id;
+    [SerializeField] private int id =0;
     [SerializeField ]private SpriteRenderer[] sprites;
     // Start is called before the first frame update
     void Start()

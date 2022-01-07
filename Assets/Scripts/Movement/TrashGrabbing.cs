@@ -10,7 +10,6 @@ public class TrashGrabbing : MonoBehaviour
     bool isRed = false, isGreen = false;
     GameObject TrashCan, TrashCan1, TrashCan2;
     [SerializeField] private int idTrash;
-    public List<Transform> id;
     bool isGrabbed = false;
     public int IdTrash { get => idTrash; set => idTrash = value; }
 
@@ -61,11 +60,10 @@ public class TrashGrabbing : MonoBehaviour
             else
             {
                 isRed = false; isGreen = false;
-            }
-            EventDispatcher.Instance.Dispatch(new EventKey.OnCollect { posMove = transform.position, action = Cautch });
+            }          
             isGrabbed = true;
+            EventDispatcher.Instance.Dispatch(new EventKey.OnCollect { posMove = transform.position, action = Cautch});
         }
-
     }
     void Cautch()
     {
@@ -96,9 +94,5 @@ public class TrashGrabbing : MonoBehaviour
                 });
             });
         }
-    }
-    void PlayerMove()
-    {
-
     }
 }

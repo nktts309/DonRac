@@ -18,12 +18,6 @@ public class PauseScript : MonoBehaviour
             ResumeGame();
         }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public void PauseGame()
     {
         isPausing = true;

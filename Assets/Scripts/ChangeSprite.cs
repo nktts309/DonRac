@@ -11,9 +11,36 @@ public class ChangeSprite : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
+    //Update is called once per frame
 
-    // Update is called once per frame
-    void Update()
+    //void Update()
+    //{
+    //    if (Time.frameCount % 30 == 0)
+    //    {
+    //        if (gameObject.CompareTag("trash0"))
+    //        {
+    //            if (GameManager.Instance.Score == PlayerPrefs.GetInt("TaiChe"))
+    //            {
+    //                spriteRenderer.sprite = newSprite;
+    //            }
+    //        }
+    //        else if (gameObject.CompareTag("trash1"))
+    //        {
+    //            if (GameManager.Instance.Score1 == PlayerPrefs.GetInt("HuuCo"))
+    //            {
+    //                spriteRenderer.sprite = newSprite;
+    //            }
+    //        }
+    //        else if (gameObject.CompareTag("trash2"))
+    //        {
+    //            if (GameManager.Instance.Score2 == PlayerPrefs.GetInt("VoCo"))
+    //            {
+    //                spriteRenderer.sprite = newSprite;
+    //            }
+    //        }
+    //    }
+    //}
+    public void ChangeImage()
     {
         if (gameObject.CompareTag("trash0"))
         {
@@ -22,14 +49,14 @@ public class ChangeSprite : MonoBehaviour
                 spriteRenderer.sprite = newSprite;
             }
         }
-        if (gameObject.CompareTag("trash1"))
+        else if (gameObject.CompareTag("trash1"))
         {
             if (GameManager.Instance.Score1 == PlayerPrefs.GetInt("HuuCo"))
             {
                 spriteRenderer.sprite = newSprite;
             }
         }
-        if (gameObject.CompareTag("trash2"))
+        else if (gameObject.CompareTag("trash2"))
         {
             if (GameManager.Instance.Score2 == PlayerPrefs.GetInt("VoCo"))
             {

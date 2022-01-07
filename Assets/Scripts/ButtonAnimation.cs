@@ -11,12 +11,6 @@ public class ButtonAnimation : MonoBehaviour
     {
         ButtonAnimate();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     void ButtonAnimate()
     {
         button.transform.DOScale(0.75f, 1).OnComplete(() => {
